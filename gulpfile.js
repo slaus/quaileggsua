@@ -55,7 +55,7 @@ gulp.task('sass:dev', function() {
     }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(`${path.build}/css`))
+    .pipe(gulp.dest(`${path.build}/assets/css`))
     .pipe(browserSync.stream());
 });
 
@@ -68,7 +68,7 @@ gulp.task('sass:docs', function() {
     }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
-    .pipe(gulp.dest(`${path.docs}/css`));
+    .pipe(gulp.dest(`${path.docs}/assets/css`));
 });
 
 gulp.task('js:dev', function() {
@@ -77,7 +77,7 @@ gulp.task('js:dev', function() {
     .pipe(sourcemaps.init())
     .pipe(concat('main.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(`${path.build}/js`))
+    .pipe(gulp.dest(`${path.build}/assets/js`))
     .pipe(browserSync.stream());
 });
 
@@ -86,13 +86,13 @@ gulp.task('js:docs', function() {
     .src(`${path.src}/js/**/*.js`)
     .pipe(concat('main.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(`${path.docs}/js`));
+    .pipe(gulp.dest(`${path.docs}/assets/js`));
 });
 
 gulp.task('images:dev', function() {
   return gulp
     .src(`${path.src}/img/**/*.{jpg,jpeg,png,gif,svg,ico}`)
-    .pipe(gulp.dest(`${path.build}/img`));
+    .pipe(gulp.dest(`${path.build}/assets/img`));
 });
 
 gulp.task('images:docs', function() {
@@ -103,31 +103,31 @@ gulp.task('images:docs', function() {
       imagemin.optipng({ optimizationLevel: 2 }),
       imagemin.svgo({ plugins: [{ removeViewBox: false }] })
     ]))
-    .pipe(gulp.dest(`${path.docs}/img`));
+    .pipe(gulp.dest(`${path.docs}/assets/img`));
 });
 
 gulp.task('video:dev', function() {
   return gulp
     .src(`${path.src}/video/**/*.{mp4,webm,ogg,avi,mov}`)
-    .pipe(gulp.dest(`${path.build}/video`));
+    .pipe(gulp.dest(`${path.build}/assets/video`));
 });
 
 gulp.task('video:docs', function() {
   return gulp
     .src(`${path.src}/video/**/*.{mp4,webm,ogg,avi,mov}`)
-    .pipe(gulp.dest(`${path.docs}/video`));
+    .pipe(gulp.dest(`${path.docs}/assets/video`));
 });
 
 gulp.task('files:dev', function() {
   return gulp
     .src(`${path.src}/files/**/*`)
-    .pipe(gulp.dest(`${path.build}/files`));
+    .pipe(gulp.dest(`${path.build}/assets/files`));
 });
 
 gulp.task('files:docs', function() {
   return gulp
     .src(`${path.src}/files/**/*`)
-    .pipe(gulp.dest(`${path.docs}/files`));
+    .pipe(gulp.dest(`${path.docs}/assets/files`));
 });
 
 gulp.task('server:dev', function(done) {
