@@ -1,3 +1,44 @@
+let scrollY = 0;
+
+function lockScroll() {
+    scrollY = window.scrollY;
+
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+}
+
+function unlockScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+
+    window.scrollTo(0, scrollY);
+}
+
+function hidePreloader() {
+    const preloadElement = document.getElementById("preload");
+
+    if (!preloadElement) return;
+
+    preloadElement.style.opacity = "0";
+
+    preloadElement.addEventListener('transitionend', () => {
+        preloadElement.style.display = "none";
+
+        document.body.classList.remove('is-loading');
+        unlockScroll();
+    }, { once: true });
+}
+
+lockScroll();
+
+if (document.readyState === "complete") {
+    hidePreloader();
+} else {
+    window.addEventListener("load", hidePreloader);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
     /** Mobile menu */

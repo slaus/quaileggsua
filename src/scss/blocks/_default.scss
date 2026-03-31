@@ -6,8 +6,8 @@
 
 html,
 body {
-	width: 100%;
-	max-width: 2400px;
+	width         : 100%;
+	max-width     : 2400px;
 	padding       : 0;
 	margin        : 0 auto;
 	overflow-x    : hidden;
@@ -21,6 +21,16 @@ body {
 html {
 	scroll-behavior: smooth;
 	scroll-behavior: auto;
+}
+
+html.is-loading,
+body.is-loading {
+    overflow: hidden;
+}
+
+body.is-loading {
+    position: fixed;
+    width: 100%;
 }
 
 body.menu-open {
@@ -83,8 +93,8 @@ img {
 	border-radius  : 8px;
 	backdrop-filter: blur(40px);
 	font-size      : clamp(13px, 2vw, 18px);
-	border: none;
-	transition: all .3s ease .3s;
+	border         : none;
+	transition     : all .3s ease .3s;
 
 	img {
 		transition: all .3s ease .3s;
@@ -193,5 +203,40 @@ blockquote {
 		right      : clamp(20px, 4vw, 35px);
 		bottom     : 0;
 		opacity    : .15;
+	}
+}
+
+#preload {
+	position             : fixed;
+	top                  : 0;
+	left                 : 0;
+	bottom               : 0;
+	right                : 0;
+	width                : 100%;
+	height               : 100vh;
+	background-color     : var(--blue);
+	z-index              : 100000;
+	display              : flex;
+	flex-direction       : row;
+	justify-content      : center;
+	align-items          : center;
+	transition: opacity 0.5s ease;
+
+	img {
+		width                            : 32px;
+		height                           : auto;
+		animation-name                   : load;
+		animation-duration               : 1s;
+		animation-iteration-count        : infinite;
+	}
+}
+
+@keyframes load {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }
