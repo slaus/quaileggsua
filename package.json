@@ -8,18 +8,19 @@
     "build": "gulp docs"
   },
   "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "^6.1.1",
     "gulp": "^4.0.2",
-    "gulp-file-include": "^2.3.0",
-    "gulp-sass": "^5.1.0",
-    "sass": "^1.69.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
-    "gulp-uglify": "^3.0.2",
     "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
     "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "browser-sync": "^2.29.3",
-    "del": "^6.1.1"
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.69.0"
   },
   "dependencies": {
     "bootstrap": "^5.3.2"

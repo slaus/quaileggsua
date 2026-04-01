@@ -9,6 +9,7 @@ const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const del = require('del');
+const rename = require('gulp-rename');
 
 const path = {
   src: './src',
@@ -16,15 +17,15 @@ const path = {
   docs: './docs'
 };
 
-gulp.task('clean:dev', function() {
+gulp.task('clean:dev', function () {
   return del([`${path.build}/**/*`]);
 });
 
-gulp.task('clean:docs', function() {
+gulp.task('clean:docs', function () {
   return del([`${path.docs}/**/*`]);
 });
 
-gulp.task('html:dev', function() {
+gulp.task('html:dev', function () {
   return gulp
     .src([
       `${path.src}/html/**/*.html`,
@@ -35,7 +36,7 @@ gulp.task('html:dev', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('html:docs', function() {
+gulp.task('html:docs', function () {
   return gulp
     .src([
       `${path.src}/html/**/*.html`,
@@ -45,7 +46,7 @@ gulp.task('html:docs', function() {
     .pipe(gulp.dest(path.docs));
 });
 
-gulp.task('sass:dev', function() {
+gulp.task('sass:dev', function () {
   return gulp
     .src(`${path.src}/scss/**/*.scss`)
     .pipe(sourcemaps.init())
@@ -54,12 +55,14 @@ gulp.task('sass:dev', function() {
       quietDeps: true
     }).on('error', sass.logError))
     .pipe(autoprefixer())
+    .pipe(cleanCSS())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${path.build}/assets/css`))
     .pipe(browserSync.stream());
 });
 
-gulp.task('sass:docs', function() {
+gulp.task('sass:docs', function () {
   return gulp
     .src(`${path.src}/scss/**/*.scss`)
     .pipe(sass({
@@ -68,10 +71,11 @@ gulp.task('sass:docs', function() {
     }).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(`${path.docs}/assets/css`));
 });
 
-gulp.task('js:dev', function() {
+gulp.task('js:dev', function () {
   return gulp
     .src(`${path.src}/js/**/*.js`)
     .pipe(sourcemaps.init())
@@ -81,7 +85,7 @@ gulp.task('js:dev', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('js:docs', function() {
+gulp.task('js:docs', function () {
   return gulp
     .src(`${path.src}/js/**/*.js`)
     .pipe(concat('main.js'))
@@ -89,13 +93,13 @@ gulp.task('js:docs', function() {
     .pipe(gulp.dest(`${path.docs}/assets/js`));
 });
 
-gulp.task('images:dev', function() {
+gulp.task('images:dev', function () {
   return gulp
     .src(`${path.src}/img/**/*.{jpg,jpeg,png,gif,svg,ico}`)
     .pipe(gulp.dest(`${path.build}/assets/img`));
 });
 
-gulp.task('images:docs', function() {
+gulp.task('images:docs', function () {
   return gulp
     .src(`${path.src}/img/**/*.{jpg,jpeg,png,gif,svg,ico}`)
     .pipe(imagemin([
@@ -106,31 +110,31 @@ gulp.task('images:docs', function() {
     .pipe(gulp.dest(`${path.docs}/assets/img`));
 });
 
-gulp.task('video:dev', function() {
+gulp.task('video:dev', function () {
   return gulp
     .src(`${path.src}/video/**/*.{mp4,webm,ogg,avi,mov}`)
     .pipe(gulp.dest(`${path.build}/assets/video`));
 });
 
-gulp.task('video:docs', function() {
+gulp.task('video:docs', function () {
   return gulp
     .src(`${path.src}/video/**/*.{mp4,webm,ogg,avi,mov}`)
     .pipe(gulp.dest(`${path.docs}/assets/video`));
 });
 
-gulp.task('files:dev', function() {
+gulp.task('files:dev', function () {
   return gulp
     .src(`${path.src}/files/**/*`)
     .pipe(gulp.dest(`${path.build}/assets/files`));
 });
 
-gulp.task('files:docs', function() {
+gulp.task('files:docs', function () {
   return gulp
     .src(`${path.src}/files/**/*`)
     .pipe(gulp.dest(`${path.docs}/assets/files`));
 });
 
-gulp.task('server:dev', function(done) {
+gulp.task('server:dev', function (done) {
   browserSync.init({
     server: {
       baseDir: path.build,
@@ -143,7 +147,7 @@ gulp.task('server:dev', function(done) {
   done();
 });
 
-gulp.task('server:docs', function(done) {
+gulp.task('server:docs', function (done) {
   browserSync.init({
     server: {
       baseDir: path.docs,
@@ -156,7 +160,7 @@ gulp.task('server:docs', function(done) {
   done();
 });
 
-gulp.task('watch:dev', function(done) {
+gulp.task('watch:dev', function (done) {
   gulp.watch(`${path.src}/html/**/*.html`, gulp.series('html:dev'));
   gulp.watch(`${path.src}/scss/**/*.scss`, gulp.series('sass:dev'));
   gulp.watch(`${path.src}/js/**/*.js`, gulp.series('js:dev'));
