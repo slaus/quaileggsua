@@ -29,10 +29,6 @@
       flex     : unset;
       min-width: unset;
       padding   : clamp(15px, 4vw, 35px);
-
-      &:nth-child(even):after {
-        background: var(--dark-blue);
-      }
     }
 
     &:hover {
@@ -131,11 +127,11 @@
       font-size         : 12px;
       line-height       : 14px;
       display           : -webkit-box;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow          : hidden;
       text-overflow     : ellipsis;
-      max-height        : calc(14px * 2);
+      max-height        : calc(14px * 3);
     }
   }
 
