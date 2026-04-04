@@ -80,6 +80,8 @@ gulp.task('js:dev', function () {
     .src(`${path.src}/js/**/*.js`)
     .pipe(sourcemaps.init())
     .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${path.build}/assets/js`))
     .pipe(browserSync.stream());
@@ -90,6 +92,7 @@ gulp.task('js:docs', function () {
     .src(`${path.src}/js/**/*.js`)
     .pipe(concat('main.js'))
     .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(`${path.docs}/assets/js`));
 });
 

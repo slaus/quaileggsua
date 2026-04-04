@@ -62,10 +62,11 @@
         overflow     : hidden;
         transition   : transform .4s, opacity .4s;
         opacity      : .6;
-        aspect-ratio : 16/9;
+        aspect-ratio : 2;
+        cursor: move;
 
         @media screen and (max-width: 1199px) {
-            aspect-ratio: 4/3;
+            aspect-ratio: 16/9;
         }
 
         img {

@@ -5,6 +5,7 @@
     &__logo {
         width : 220px;
         height: auto;
+        filter: invert(100%) sepia(0) saturate(0) hue-rotate(317deg) brightness(125%) contrast(102%);
 
         @media screen and (max-width: 991px) {
             width: 200px;
@@ -109,18 +110,19 @@
     }
 
     &__title {
-        opacity: .55;
+        opacity    : .55;
         font-weight: 400;
     }
 
     &__link {
         &.lang {
-            color: var(--black);
+            color      : var(--black);
             font-weight: 400;
 
             &.active {
                 color: var(--light-blue);
             }
+
             &:hover:not(.active) {
                 color: var(--blue);
             }
@@ -128,7 +130,7 @@
     }
 
     &__contact {
-        color: var(--black);
+        color      : var(--black);
         font-weight: 400;
 
         &:hover {
@@ -146,7 +148,7 @@
         position   : relative;
 
         &.active {
-            color: var(--light-blue);
+            color        : var(--light-blue);
             // background: var(--blue);
 
             &:after {
