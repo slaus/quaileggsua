@@ -11,8 +11,12 @@
             width: 200px;
         }
 
-        @media screen and (max-width: 576px) {
+        @media screen and (max-width: 767px) {
             width: 170px;
+        }
+
+        @media screen and (max-width: 576px) {
+            width: 150px;
         }
     }
 

@@ -3,8 +3,8 @@
 
     &__text {
         color      : var(--dark-gray);
-        font-size  : clamp(22px, calc(14px + 3vw), 44px);
-        line-height: clamp(22px, calc(14px + 3vw), 44px);
+        font-size  : clamp(18px, calc(8px + 3vw), 28px);
+        line-height: clamp(26px, calc(14px + 3vw), 34px);
         font-weight: 300;
 
         strong,

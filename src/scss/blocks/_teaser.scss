@@ -72,8 +72,8 @@
             color        : var(--white);
             border-radius: var(--radius);
             position     : relative;
-            padding      : clamp(20px, 4vw, 35px);
-            font-size    : clamp(18px, 2vw, 26px);
+            padding      : clamp(24px, 4vw, 40px);
+            font-size    : clamp(18px, 2vw, 24px);
             height       : -webkit-fill-available;
 
             @media screen and (max-width: 991px) {

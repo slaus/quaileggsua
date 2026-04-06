@@ -148,11 +148,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const viewportHeight = getViewportHeight();
 
         setupButtonVisibility(scrollTopButton, viewportHeight, viewportHeight);
-        setupButtonVisibility(callButton, viewportHeight * 0.01, viewportHeight);
+        // setupButtonVisibility(callButton, viewportHeight * 0.01, viewportHeight);
     };
 
     initButtonStyles(scrollTopButton);
-    initButtonStyles(callButton);
+    // initButtonStyles(callButton);
 
     window.addEventListener('scroll', toggleButtons);
 
