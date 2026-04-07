@@ -44,17 +44,17 @@
     }
 
     @media screen and (max-width: 991px) {
-      margin    : calc(var(--bs-gutter-x) * -1) 0;
-      clip-path : polygon(0% calc(var(--bs-gutter-x) * 2), 100% 0%, 100% calc(100% - calc(var(--bs-gutter-x) * 2)), 0% 100%);
+      margin   : calc(var(--bs-gutter-x) * -1) 0;
+      clip-path: polygon(0% calc(var(--bs-gutter-x) * 2), 100% 0%, 100% calc(100% - calc(var(--bs-gutter-x) * 2)), 0% 100%);
       flex     : unset;
       min-width: unset;
 
       &:first-child {
-        clip-path : polygon(0% 0%, 100% 0%, 100% calc(100% - calc(var(--bs-gutter-x) * 2)), 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - calc(var(--bs-gutter-x) * 2)), 0% 100%);
       }
 
       &:last-child {
-        clip-path : polygon(0% calc(var(--bs-gutter-x) * 2), 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% calc(var(--bs-gutter-x) * 2), 100% 0%, 100% 100%, 0% 100%);
       }
     }
 
@@ -84,7 +84,8 @@
       }
 
       .slider__btn {
-        opacity: .75;
+        opacity  : .75;
+        transform: translate(0, 0);
       }
     }
 
@@ -142,13 +143,15 @@
   }
 
   &__title {
-    z-index    : 1;
-    text-shadow: 1px 1px 1px var(--black);
-    width      : 20vw;
+    z-index       : 1;
+    text-shadow   : 1px 1px 1px var(--black);
+    // width      : 20vw;
+    width         : 40ch;
 
     @media screen and (max-width: 1199px) {
       // width    : 80%;
-      min-width: 300px;
+      // min-width: 300px;
+      width: 30ch;
     }
 
     @media screen and (max-width: 991px) {
@@ -157,12 +160,18 @@
   }
 
   &__text {
-    z-index: 1;
-    width  : 20vw;
+    z-index   : 1;
+    // width  : 20vw;
+    width     : 40ch;
+
+    @media screen and (max-width: 1499px) {
+      width: 30ch;
+    }
 
     @media screen and (max-width: 1199px) {
       // width    : 80%;
-      min-width: 300px;
+      // min-width: 300px;
+      width: 25ch;
     }
 
     @media screen and (max-width: 991px) {
@@ -182,10 +191,12 @@
   }
 
   &__btn {
-    transition: all .3s ease-in-out .3s;
-    z-index   : 1;
-    opacity   : 0;
-    background: var(--blue);
+    z-index    : 1;
+    opacity    : 0;
+    background : var(--blue);
+    transform  : translateY(50px);
+    transition : opacity 0.8s ease, transform 0.8s ease;
+    will-change: transform, opacity;
 
     @media screen and (max-width: 991px) {
       opacity: 1;

@@ -1,5 +1,37 @@
 let scrollY = 0;
 
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.left, .right, .up, .down');
+    if (!revealElements.length) return;
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > 0;
+    }
+
+    function revealVisibleElements() {
+        revealElements.forEach(el => {
+            if (isElementInViewport(el)) {
+                el.classList.add('revealed');
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            } else {
+                entry.target.classList.remove('revealed');
+            }
+        });
+    }, { threshold: 0 });
+
+    revealElements.forEach(el => observer.observe(el));
+    revealVisibleElements();
+    window.addEventListener('load', revealVisibleElements);
+}
+
 function lockScroll() {
     scrollY = window.scrollY;
 
@@ -28,6 +60,8 @@ function hidePreloader() {
 
         document.body.classList.remove('is-loading');
         unlockScroll();
+
+        initScrollReveal();
     }, { once: true });
 }
 
@@ -247,10 +281,10 @@ document.addEventListener('DOMContentLoaded', function () {
             stickyMenu.style.width = rect.width + 'px';
             stickyMenu.style.zIndex = '1000';
 
-            if (menuList) {
-                menuList.style.maxHeight = 'calc(100vh - 40px)';
-                menuList.style.overflowY = 'auto';
-            }
+            // if (menuList) {
+            //     menuList.style.maxHeight = 'calc(100vh - 40px)';
+            //     menuList.style.overflowY = 'auto';
+            // }
         } else if (!shouldSticky && stickyMenu.hasAttribute('data-sticky')) {
             stickyMenu.removeAttribute('data-sticky');
 
