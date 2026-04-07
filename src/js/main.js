@@ -1,3 +1,4 @@
+/** Before DOMContentLoaded */
 let scrollY = 0;
 
 function initScrollReveal() {
@@ -29,6 +30,7 @@ function initScrollReveal() {
 
     revealElements.forEach(el => observer.observe(el));
     revealVisibleElements();
+    
     window.addEventListener('load', revealVisibleElements);
 }
 

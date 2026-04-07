@@ -5,6 +5,7 @@
 .footer {
   margin-top: auto;
   font-size : 14px;
+  width     : 100%;
 
   &__inner {
     background   : var(--blue);
@@ -19,7 +20,7 @@
   }
 
   &__text {
-    width: 100%;
+    // width    : 100%;
     max-width: 1000px;
   }
 
