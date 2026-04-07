@@ -251,16 +251,16 @@ blockquote {
 }
 
 .left {
-    transform: translateX(-100px);
+    transform: translateX(calc(var(--move) * -1));
 }
 .right {
-    transform: translateX(100px);
+    transform: translateX(var(--move));
 }
 .up {
-    transform: translateY(100px);
+    transform: translateY(var(--move));
 }
 .down {
-    transform: translateY(-100px);
+    transform: translateY(calc(var(--move) * -1));
 }
 
 .left.revealed,
