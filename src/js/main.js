@@ -174,11 +174,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    if (callButton) {
-        callButton.addEventListener('click', (e) => {
-            e.preventDefault();
-        });
-    }
+    // if (callButton) {
+    //     callButton.addEventListener('click', (e) => {
+    //         e.preventDefault();
+    //     });
+    // }
 
     const toggleButtons = () => {
         const viewportHeight = getViewportHeight();
