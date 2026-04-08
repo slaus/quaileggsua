@@ -1,0 +1,45 @@
+.home {
+    .navbar__logo {
+        display: none;
+    }
+
+    .navbar__menu {
+
+        &--icon {
+            background     : var(--blue);
+
+            &:before, &:after {
+                background  : var(--blue);
+            }
+        }
+
+        &.open {
+
+            .navbar__menu--icon {
+                background: var(--white);
+
+                &:before, &:after {
+                    background: var(--white);
+                }
+            }
+        }
+    }
+
+    &__logo {
+        padding: 10px 0 0;
+
+        &--img {
+            max-width: 250px;
+
+            @media screen and (max-width: 991px) {
+                max-width: 200px;
+                margin-top: 10px;
+            }
+
+            @media screen and (max-width: 576px) {
+                max-width: 160px;
+                margin-top: 15px;
+            }
+        }
+    }
+}

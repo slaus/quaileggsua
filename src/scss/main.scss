@@ -9,6 +9,7 @@
 // Свои стили
 @use "blocks/var";
 @use "blocks/default";
+@use "blocks/home";
 @use "blocks/header";
 @use "blocks/slider";
 @use "blocks/breadcrumb";
@@ -23,6 +24,7 @@
 @use "blocks/article";
 @use "blocks/faq";
 @use "blocks/about";
+@use "blocks/partners";
 @use "blocks/pagination";
 @use "blocks/swiper";
 @use "blocks/error";

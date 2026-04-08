@@ -2,4 +2,7 @@
     padding: 0px;
     z-index: 1;
     background: var(--white);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }

@@ -7,7 +7,7 @@
 html,
 body {
 	width         : 100%;
-	max-width     : 1920px;
+	max-width     : 1890px;
 	padding       : 0;
 	margin        : 0 auto;
 	overflow-x    : hidden;
@@ -25,12 +25,12 @@ html {
 
 html.is-loading,
 body.is-loading {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 body.is-loading {
-    position: fixed;
-    width: 100%;
+	position: fixed;
+	width   : 100%;
 }
 
 body.menu-open {
@@ -54,6 +54,15 @@ body.menu-open {
 		background: var(--white);
 		z-index   : 10;
 		opacity   : 0;
+	}
+
+	.slider {
+		padding-bottom: 12px;
+
+		@media screen and (max-width: 991px) {
+			min-height: calc(100vh - 98px);
+			padding: 0;
+		}
 	}
 }
 
@@ -123,7 +132,7 @@ img {
 
 #scroll-top {
 	position       : fixed;
-	bottom         : 200px;
+	bottom         : 90px;
 	right          : 30px;
 	padding        : 0;
 	z-index        : 200;
@@ -136,7 +145,8 @@ img {
 	background     : var(--light-blue);
 
 	@media screen and (max-width: 767px) {
-		bottom: 90px;
+		right : 20px;
+		bottom: 80px;
 	}
 
 	img {
@@ -147,7 +157,7 @@ img {
 
 #call {
 	position       : fixed;
-	bottom         : 140px;
+	bottom         : 30px;
 	right          : 30px;
 	padding        : 0;
 	display        : flex;
@@ -160,7 +170,8 @@ img {
 	background     : #28ad16;
 
 	@media screen and (max-width: 767px) {
-		bottom: 30px;
+		bottom: 20px;
+		right : 20px;
 	}
 
 	img {
@@ -207,27 +218,27 @@ blockquote {
 }
 
 #preload {
-	position             : fixed;
-	top                  : 0;
-	left                 : 0;
-	bottom               : 0;
-	right                : 0;
-	width                : 100%;
-	height               : 100vh;
-	background-color     : var(--blue);
-	z-index              : 100000;
-	display              : flex;
-	flex-direction       : row;
-	justify-content      : center;
-	align-items          : center;
-	transition: opacity 0.5s ease;
+	position        : fixed;
+	top             : 0;
+	left            : 0;
+	bottom          : 0;
+	right           : 0;
+	width           : 100%;
+	height          : 100vh;
+	background-color: var(--blue);
+	z-index         : 100000;
+	display         : flex;
+	flex-direction  : row;
+	justify-content : center;
+	align-items     : center;
+	transition      : opacity 0.5s ease;
 
 	img {
-		width                            : 32px;
-		height                           : auto;
-		animation-name                   : load;
-		animation-duration               : 1s;
-		animation-iteration-count        : infinite;
+		width                    : 32px;
+		height                   : auto;
+		animation-name           : load;
+		animation-duration       : 1s;
+		animation-iteration-count: infinite;
 	}
 }
 
@@ -245,28 +256,31 @@ blockquote {
 .right,
 .up,
 .down {
-    opacity: 0;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    will-change: transform, opacity;
+	opacity    : 0;
+	transition : opacity 0.8s ease, transform 0.8s ease;
+	will-change: transform, opacity;
 }
 
 .left {
-    transform: translateX(calc(var(--move) * -1));
+	transform: translateX(calc(var(--move) * -1));
 }
+
 .right {
-    transform: translateX(var(--move));
+	transform: translateX(var(--move));
 }
+
 .up {
-    transform: translateY(var(--move));
+	transform: translateY(var(--move));
 }
+
 .down {
-    transform: translateY(calc(var(--move) * -1));
+	transform: translateY(calc(var(--move) * -1));
 }
 
 .left.revealed,
 .right.revealed,
 .up.revealed,
 .down.revealed {
-    opacity: 1;
-    transform: translate(0, 0);
+	opacity  : 1;
+	transform: translate(0, 0);
 }
