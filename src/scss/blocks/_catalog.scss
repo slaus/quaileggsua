@@ -1,0 +1,87 @@
+.catalog {
+    width     : 100%;
+    margin-top: calc(var(--space) * 2);
+
+    .wrapper {
+        padding: var(--space) 0;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .block {
+        padding-top: var(--space);
+
+        &-grid {
+            display              : grid;
+            width                : 100%;
+            grid-gap             : var(--space);
+            gap                  : var(--space);
+            margin               : 0;
+            padding              : 0;
+            grid-auto-flow       : row dense;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            list-style           : none;
+
+            @media screen and (max-width: 1199px) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media screen and (max-width: 576px) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &-item {
+            transition: var(--transition);
+            padding   : 0 calc(var(--space) / 2);
+
+            &:hover {
+                .block-image {
+                    border: 5px solid var(--color-yellow);
+                }
+
+                .block-title {
+                    color: var(--color-yellow);
+                }
+            }
+        }
+
+        &-title {
+            font-size     : 200%;
+            line-height   : 100%;
+            padding-left  : 15px;
+            padding-right : 15px;
+            margin-left   : auto;
+            margin-right  : auto;
+            text-transform: uppercase;
+            color         : var(--color-blue);
+            transition    : var(--transition);
+
+            @media screen and (max-width: 767px) {
+                padding-left : 0;
+                padding-right: 0;
+            }
+        }
+
+        &-image {
+            border-radius: 50%;
+            overflow     : hidden;
+            border       : 5px solid var(--color-card);
+            transition   : var(--transition);
+            position     : relative;
+            width        : 100%;
+            max-width    : 400px;
+            margin-left  : auto;
+            margin-right : auto;
+
+            img {
+                width     : 100%;
+                height    : 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+}

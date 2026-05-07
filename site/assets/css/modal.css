@@ -1,0 +1,175 @@
+.section-newsletter {
+    float: left;
+    width: 100%;
+    clear: both;
+    display: none;
+}
+
+.section-newsletter .newsletter-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    transition: all linear .3s;
+    display: block;
+}
+
+.section-newsletter .newsletter-container-overlay {
+    color: var(--DTSecondaryColor);
+    background: currentcolor;
+    opacity: 0.95;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.newsletter-container .newsletter-modal {
+    padding: 45px 30px 30px;
+    width: 660px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    transition: all linear .3s;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--DTRadius);
+    overflow: hidden;
+    background: url("../images/newsletter.jpg") center center;
+    background-size: cover;
+}
+
+.overlay:before {
+    content: "";
+    display: block;
+    -webkit-transition: all linear .3s;
+    transition: all linear .3s;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.newsletter-container .newsletter-modal.overlay:before {
+    width: 100%;
+    height: 100%;
+    color: var(--DTTertiaryColor);
+    background: currentcolor;
+    opacity: 0.85;
+}
+
+.section-newsletter .newsletter-container {
+    text-align: center;
+    color: var(--DT_Blog_Link_Color_Overlay);
+}
+
+.section-newsletter .newsletter-container h2 {
+    color: var(--DTPrimaryColor);
+    text-transform: uppercase;
+}
+
+.newsletter-container .newsletter-modal .newsletter-content form {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 20px;
+    position: relative;
+}
+
+.newsletter-container .newsletter-modal .user-mail {
+    background: var(--DTOverlayColor);
+    background-color: var(--DT_Blog_Button_Text_Color);
+    border: 1px solid var(--DTOverlayColor);
+    width: auto;
+    margin: 0;
+}
+
+.newsletter-container .newsletter-modal .btn {
+    background-color: var(--DT_Button_BG_Color);
+    color: var(--DTSecondaryColor);
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+.newsletter-container .close-window {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    line-height: var(--DT_Body_Line_Height);
+    border-radius: var(--DT_Button_Border_Radius);
+    cursor: pointer;
+    padding: var(--DTPadding_Btn) 0;
+    height: 40px;
+    width: 40px;
+}
+
+.newsletter-container .close-window img {
+    width: 12px;
+    height: 12px;
+}
+
+.newsletter-container .newsletter-modal .btn:hover {
+    background-color: var(--DTSecondaryColor);
+    color: var(--DT_Button_Text_Color);
+}
+
+.newsletter-container .newsletter-modal .btn:hover img {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(217deg) brightness(105%) contrast(102%);
+}
+
+.newsletter-container .newsletter-additional-content {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.newsletter-container .social-icons  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-container .social-icons .icon__fallback-text {
+    font-size: 0;
+}
+
+.newsletter-container .social-icons a {
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-container .social-icons a img {
+    width: 100%;
+    height: 100%;
+    filter: invert(18%) sepia(34%) saturate(1057%) hue-rotate(234deg) brightness(96%) contrast(92%);
+    transition: filter .5s ease;
+}
+
+.newsletter-container .social-icons a + a {
+    margin-left: 20px;
+}
+
+.newsletter-container .social-icons a:hover  {
+    color: var(--DT_Button_BG_Color);
+}
+
+.newsletter-container .social-icons a:hover img  {
+    filter: invert(64%) sepia(59%) saturate(545%) hue-rotate(356deg) brightness(106%) contrast(95%);
+    transition: filter .5s ease;
+}

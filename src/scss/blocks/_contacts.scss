@@ -1,0 +1,148 @@
+.contacts {
+    margin-top   : calc(var(--space) * 2);
+    margin-bottom: calc(var(--space) * 2);
+
+    .wrapper {
+        display          : flex;
+        // flex-direction: column;
+        gap              : var(--space);
+        flex-wrap        : wrap;
+    }
+
+    .title {
+        text-align: center;
+        width     : 100%;
+    }
+
+    .map {
+        border-radius: var(--radius);
+        overflow     : hidden;
+        width        : calc(50% - var(--space) * 0.5);
+        flex         : 0 0 calc(50% - var(--space) * 0.5);
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            flex : 0 0 100%;
+        }
+    }
+
+    .block {
+        display       : flex;
+        gap           : calc(var(--space) * 0.5);
+        width         : calc(50% - var(--space) * 0.5);
+        flex-direction: column;
+        flex          : 0 0 calc(50% - var(--space) * 0.5);
+        background    : var(--color-card);
+        border-radius : var(--radius);
+        padding       : 0 var(--padding-x) var(--padding-y);
+
+        @media screen and (max-width: 991px) {
+            width: 100%;
+            flex : 0 0 100%;
+        }
+
+        &-item {
+            // padding      : var(--padding);
+            // border       : 1px solid var(--color-blue);
+            // background   : var(--color-card);
+            // border-radius: var(--radius);
+            width: 100%;
+
+            @media screen and (max-width: 991px) {
+                width     : 100%;
+                text-align: center;
+            }
+        }
+
+        &-content {
+            color: var(--color-text);
+
+            a {
+                color: var(--color-text);
+
+                &:hover {
+                    color: var(--color-blue);
+                }
+            }
+
+            h5 {
+                text-transform: uppercase;
+                margin-bottom : 0;
+            }
+
+            span {
+                display: block;
+            }
+        }
+    }
+
+    h4 {
+        font-size: xx-large;
+    }
+
+    .form {
+        margin-bottom: var(--space);
+        width        : 100%;
+
+        form {
+            display  : flex;
+            gap      : calc(var(--space) * 0.5);
+            flex-wrap: wrap;
+
+            .form-group {
+                position: relative;
+                width   : calc(33.3333% - calc(var(--space) * 0.5) * 2 / 3);
+
+                @media screen and (max-width: 991px) {
+                    width: 100%;
+                }
+
+                &:nth-child(4) {
+                    width: 100%;
+                }
+            }
+
+            .form-submit {
+                width     : 100%;
+                text-align: center;
+
+                .btn {
+                    background: var(--color-yellow);
+                    cursor    : pointer;
+
+                    &:hover {
+                        background: var(--color-blue);
+                        color     : var(--color-card);
+                    }
+                }
+            }
+
+            label {
+                display: none;
+            }
+
+            input,
+            textarea {
+                display      : block;
+                margin       : 0;
+                width        : 100%;
+                appearance   : none;
+                outline      : none;
+                padding      : var(--padding);
+                border       : 1px solid var(--color-gray);
+                border-radius: var(--radius);
+                background   : var(--color-card);
+                word-break   : break-all;
+                transition   : var(--transition);
+
+                &::placeholder {
+                    color: var(--color-gray-dark);
+                }
+
+                &:focus {
+                    border: 1px solid var(--color-blue);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+.faqs .accordion-container .accordion-btn {
+    width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    padding: 20px 65px;
+    background: var(--DT_Button_BG_Color);
+    border-radius: 64px;
+    transition: all .5s ease;
+}
+
+.faqs .accordion-container .accordion-btn:hover {
+    background: var(--DTSecondaryColor);
+    transition: background .5s ease;
+}
+
+.faqs .accordion-container .accordion-btn:hover h5 {
+    color: var(--DT_Blog_Link_Color_Overlay);
+    transition: color .5s ease;
+}
+
+.faqs .accordion-container .accordion-btn + .accordion-content + .accordion-btn {
+    margin-top: 20px;
+}
+
+.faqs .accordion-container .accordion-btn.active {
+    border-radius: 32px 32px 0 0;
+}
+
+.faqs .accordion-container .accordion-btn h5 {
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 24px;
+    color: var(--DTSecondaryColor);
+}
+
+.faqs .accordion-container .accordion-btn h5:after {
+    content: "+";
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: -35px;
+    transition: var(--DTBaseTransition);
+    font-size: 30px;
+}
+
+.faqs .accordion-container .accordion-btn.active h5:after {
+    content: "-";
+    margin-top: -12px;
+}
+
+.faqs .accordion-container .accordion-content {
+    color: var(--DTColor_Body);
+    background-color: var(--DTOverlayColor);
+    border-radius: 0 0 var(--DTRadius) var(--DTRadius);
+    display: none;
+}
+
+.faqs .accordion-container .accordion-content.open {
+    display: block;
+}
+
+.faqs .accordion-container .accordion-content-inner {
+    padding: 30px;
+}

@@ -96,6 +96,18 @@ gulp.task('js:docs', function () {
     .pipe(gulp.dest(`${path.docs}/assets/js`));
 });
 
+gulp.task('fonts:dev', function () {
+  return gulp
+    .src(`${path.src}/fonts/**/*`)
+    .pipe(gulp.dest(`${path.build}/assets/fonts`));
+});
+
+gulp.task('fonts:docs', function () {
+  return gulp
+    .src(`${path.src}/fonts/**/*`)
+    .pipe(gulp.dest(`${path.docs}/assets/fonts`));
+});
+
 gulp.task('images:dev', function () {
   return gulp
     .src(`${path.src}/img/**/*.{jpg,jpeg,png,gif,svg,ico}`)
@@ -167,6 +179,7 @@ gulp.task('watch:dev', function (done) {
   gulp.watch(`${path.src}/html/**/*.html`, gulp.series('html:dev'));
   gulp.watch(`${path.src}/scss/**/*.scss`, gulp.series('sass:dev'));
   gulp.watch(`${path.src}/js/**/*.js`, gulp.series('js:dev'));
+  gulp.watch(`${path.src}/fonts/**/*`, gulp.series('fonts:dev'));
   gulp.watch(`${path.src}/img/**/*`, gulp.series('images:dev'));
   gulp.watch(`${path.src}/video/**/*`, gulp.series('video:dev'));
   gulp.watch(`${path.src}/files/**/*`, gulp.series('files:dev'));
@@ -175,12 +188,12 @@ gulp.task('watch:dev', function (done) {
 
 gulp.task('default', gulp.series(
   'clean:dev',
-  gulp.parallel('html:dev', 'sass:dev', 'js:dev', 'images:dev', 'video:dev', 'files:dev'),
+  gulp.parallel('html:dev', 'sass:dev', 'js:dev', 'fonts:dev', 'images:dev', 'video:dev', 'files:dev'),
   gulp.parallel('server:dev', 'watch:dev')
 ));
 
 gulp.task('docs', gulp.series(
   'clean:docs',
-  gulp.parallel('html:docs', 'sass:docs', 'js:docs', 'images:docs', 'video:docs', 'files:docs'),
+  gulp.parallel('html:docs', 'sass:docs', 'js:docs', 'fonts:docs', 'images:docs', 'video:docs', 'files:docs'),
   'server:docs'
 ));

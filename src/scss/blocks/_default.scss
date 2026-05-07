@@ -7,7 +7,6 @@
 html,
 body {
 	width         : 100%;
-	max-width     : 1890px;
 	padding       : 0;
 	margin        : 0 auto;
 	overflow-x    : hidden;
@@ -16,11 +15,31 @@ body {
 	flex-direction: column;
 	position      : relative;
 	font-weight   : 300;
+	color         : var(--color-text);
 }
 
 html {
 	scroll-behavior: smooth;
 	scroll-behavior: auto;
+}
+
+body {
+	background: var(--color-gray-light);
+	transition: var(--transition);
+	scroll-behavior: smooth;
+
+	&:after {
+		content   : "";
+		display   : block;
+		position  : absolute;
+		width     : 100%;
+		height    : 100%;
+		left      : 0;
+		top       : 0;
+		background: var(--color-blue-dark);
+		z-index   : -1;
+		opacity   : 0;
+	}
 }
 
 html.is-loading,
@@ -33,10 +52,25 @@ body.is-loading {
 	width   : 100%;
 }
 
+body,
+button,
+input,
+textarea,
+select,
+optgroup {
+	text-transform: none;
+	font-weight   : normal;
+	letter-spacing: 0;
+	font-family   : var(--font-body);
+	font-size     : 17px;
+	line-height   : var(--line-height);
+	color         : var(--color-text);
+}
+
 body.menu-open {
-	transition  : all 0s ease 0s;
+	transition  : var(--transition);
 	overflow-y  : hidden;
-	height      : 100vh;
+	// height      : 100vh;
 	margin-right: 15px;
 
 	@media (orientation: portrait) and (max-width: 768px) {
@@ -44,32 +78,47 @@ body.menu-open {
 	}
 
 	&:after {
-		content   : "";
-		display   : block;
-		position  : absolute;
-		width     : 100%;
-		height    : 100%;
-		left      : 0;
-		top       : 0;
-		background: var(--white);
 		z-index   : 10;
-		opacity   : 0;
+		opacity   : .75;
 	}
 
 	.slider {
-		padding-bottom: 12px;
+		padding-bottom: 0;
 
 		@media screen and (max-width: 991px) {
 			min-height: calc(100vh - 98px);
-			padding: 0;
+			padding   : 0;
 		}
 	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color         : var(--color-blue);
+	letter-spacing: 0;
+	text-transform: none;
+	line-height   : var(--line-height);
+	margin-top    : 30px;
+	margin-bottom : 15px;
+	font-family   : var(--font-heading);
+	font-weight   : 400;
+}
+
+.container {
+	width: 100%;
+	max-width: var(--container);
+	margin   : 0 auto;
+	padding: 0 calc(var(--padding-x) * 0.5);
 }
 
 a {
 	text-decoration: none;
 	display        : inline-block;
-	transition     : all .3s ease .3s;
+	transition     : var(--transition);
 }
 
 img {
@@ -85,8 +134,9 @@ img {
 }
 
 .subtitle {
+	text-transform: uppercase;
 	font-size  : clamp(18px, 2vw, 24px);
-	line-height: calc(clamp(18px, 2vw, 24px) * 1.2);
+	line-height: calc(clamp(18px, 2vw, 24px) * 2);
 	font-weight: 400;
 }
 
@@ -95,18 +145,16 @@ img {
 	line-height: calc(clamp(16px, 2vw, 20px) * 1.2);
 }
 
-.button {
-	background     : var(--light-blue);
-	color          : var(--white);
-	padding        : clamp(10px, 2vw, 15px) clamp(20px, 4vw, 35px);
-	border-radius  : 8px;
-	backdrop-filter: blur(40px);
-	font-size      : clamp(13px, 2vw, 18px);
+.btn {
+	color          : var(--color-card);
+	padding        : var(--padding);
+	border-radius  : var(--radius);
+	font-size      : clamp(15px, 2vw, 18px);
 	border         : none;
-	transition     : all .3s ease .3s;
+	transition     : var(--transition);
 
 	img {
-		transition: all .3s ease .3s;
+		transition: var(--transition);
 		width     : 18px;
 		height    : 18px;
 
@@ -118,14 +166,6 @@ img {
 		@media screen and (max-width: 576px) {
 			width : 12px;
 			height: 12px;
-		}
-	}
-
-	&:hover {
-		opacity: .75;
-
-		img {
-			transform: translateX(10px) scale(1.2);
 		}
 	}
 }
@@ -142,7 +182,7 @@ img {
 	width          : 45px;
 	height         : 45px;
 	border-radius  : 50%;
-	background     : var(--light-blue);
+	background     : var(--color-blue);
 
 	@media screen and (max-width: 767px) {
 		right : 20px;
@@ -150,8 +190,9 @@ img {
 	}
 
 	img {
-		width : 30px;
-		height: 30px;
+		transform: rotate(-90deg);
+		width : 25px;
+		height: 25px;
 	}
 }
 
@@ -181,8 +222,8 @@ img {
 }
 
 blockquote {
-	background   : var(--light-blue);
-	color        : var(--white);
+	background   : var(--color-blue-light);
+	color        : var(--color-card);
 	border-radius: var(--radius);
 	position     : relative;
 	transform    : translateX(clamp(-10%, 4vw, -18%));
@@ -198,7 +239,7 @@ blockquote {
 		content    : "“";
 		font-size  : clamp(4rem, calc(4rem + 4vw), 10rem);
 		font-weight: 600;
-		color      : var(--white);
+		color      : var(--color-card);
 		position   : absolute;
 		left       : clamp(20px, 4vw, 35px);
 		top        : clamp(30px, 4vw, 50px);
@@ -209,7 +250,7 @@ blockquote {
 		content    : "”";
 		font-size  : clamp(4rem, calc(4rem + 4vw), 10rem);
 		font-weight: 600;
-		color      : var(--white);
+		color      : var(--color-card);
 		position   : absolute;
 		right      : clamp(20px, 4vw, 35px);
 		bottom     : 0;
@@ -225,20 +266,23 @@ blockquote {
 	right           : 0;
 	width           : 100%;
 	height          : 100vh;
-	background-color: var(--blue);
+	background-color: var(--color-blue-dark);
 	z-index         : 100000;
 	display         : flex;
 	flex-direction  : row;
 	justify-content : center;
 	align-items     : center;
-	transition      : opacity 0.5s ease;
+	transition      : var(--transition);
 
 	img {
-		width                    : 32px;
+		width                    : 50px;
 		height                   : auto;
 		animation-name           : load;
 		animation-duration       : 1s;
 		animation-iteration-count: infinite;
+		color                    : var(--color-card);
+		fill                     : var(--color-card);
+		filter                   : invert(100%) sepia(100%) saturate(0%) hue-rotate(88deg) brightness(1007%) contrast(102%);
 	}
 }
 

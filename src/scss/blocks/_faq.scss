@@ -1,27 +1,114 @@
 .faq {
+    width     : 100%;
+    margin-top: calc(var(--space) * 2);
 
-    &__area {
-        position: relative;
+    .wrapper {
+        padding: var(--space) 0;
     }
 
-    &__block {
-        flex : 0 0 auto;
-        width: calc(33.3333% - 2rem);
+    .title {
+        text-align: center;
+    }
 
-        @media screen and (max-width: 1199px) {
-            width: calc(50% - 1rem);
+
+    .block {
+        &-container {
+            display       : flex;
+            flex-direction: column;
+            gap           : calc(var(--space) * 0.5);
         }
 
-        @media screen and (max-width: 991px) {
-            width: 100%;
+        &-btn {
+            width        : 100%;
+            margin       : 0 auto;
+            cursor       : pointer;
+            padding      : calc(var(--space) * 0.5) var(--space) calc(var(--space) * 0.5) calc(var(--space) * 2.5);
+            background   : var(--color-card);
+            border-radius: var(--radius);
+            transition   : var(--transition);
+            min-height   : 45px;
+            display      : flex;
+            align-items  : center;
+
+            &+.accordion-content+& {
+                margin-top: 20px;
+            }
+
+            &.active {
+                border-radius: var(--radius) var(--radius) 0 0;
+                background   : var(--color-yellow);
+
+                .block-title:before {
+                    transform: rotate(270deg);
+                }
+                .block-title:after {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &:hover {
+                background: var(--color-yellow);
+            }
+
+            .block-title {
+                transition : var(--transition);
+                line-height: 100%;
+                font-weight: 600;
+                margin     : 0;
+                position   : relative;
+                display    : flex;
+                align-items: center;
+                flex-wrap  : wrap;
+                color      : var(--color-text);
+
+                &:after {
+                    content   : "";
+                    display   : block;
+                    width     : 16px;
+                    height    : 2px;
+                    background: var(--color-text);
+                    position  : absolute;
+                    top       : calc(50% - 2px);
+                    left      : -31px;
+                    transition: var(--transition);
+                }
+
+                &:before {
+                    content   : "";
+                    display   : block;
+                    width     : 2px;
+                    height    : 16px;
+                    background: var(--color-text);
+                    position  : absolute;
+                    top       : calc(50% - 9px);
+                    left      : -24px;
+                    transition: var(--transition);
+                }
+            }
         }
 
-        p:last-child {
-            margin-bottom: 0;
-        }
+        &-content {
+            color           : var(--color-card);
+            background-color: var(--color-card);
+            border-radius   : 0 0 var(--radius) var(--radius);
+            opacity         : 0;
+            height          : 0;
+            overflow        : hidden;
+            margin-top      : calc(-0.5 * var(--space));
+            display         : block;
+            transition      : var(--transition);
+            transform       : translateY(20px);
 
-        h2 {
-            color: var(--light-blue);
+            &.open {
+                opacity  : 1;
+                height   : auto;
+                color    : var(--color-text);
+                transform: translateY(0px);
+            }
+
+            &-inner {
+                padding: calc(var(--space) * 0.5) var(--space);
+            }
         }
     }
 }

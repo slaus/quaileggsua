@@ -1,0 +1,160 @@
+.layout-type.block-layout {}
+
+.layout-type.block-layout>* {
+    flex: 1 1 100%;
+}
+
+.layout-type.block_layout>*+* {
+    margin-top: 35px;
+}
+
+.layout-type.block-layout #map {
+    margin-bottom: 30px;
+}
+
+.contact-block-section {
+    display: grid;
+    width: 100%;
+    grid-gap: var(--DTGutter_Width);
+    margin-bottom: 30px;
+    margin-left: 0;
+    padding: 0;
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 991px) {
+    .contact-block-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contact-block-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.contact-block-section .contact-item {
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--DTPrimaryColor);
+    padding: 25px;
+    transition: var(--DTBaseTransition);
+    border-radius: var(--DTRadius);
+}
+
+.contact-block-section .contact-item:hover {
+    border-color: var(--DTSecondaryColor);
+}
+
+.contact-block-section .contact-icon {
+    background: var(--DT_Button_BG_Color);
+    border-radius: var(--DTRadius);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    transition: var(--DTBaseTransition);
+}
+
+.contact-block-section .contact-item:hover .contact-icon {
+    background-color: var(--DTSecondaryColor);
+}
+
+.contact-block-section .contact-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-block-section .contact-content h5 {
+    color: var(--DTSecondaryColor);
+    margin-top: 25px;
+    transition: var(--DTBaseTransition);
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.contact-block-section .contact-content div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contact-block-section .contact-content div span {
+    display: block;
+    width: 100px;
+}
+
+.contact-block-section .contact-content div>* {
+    margin-bottom: 0;
+}
+
+.contact-block-section .contact-content b {
+    display: block;
+    width: calc(100% - 105px);
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1320px) {
+    .contact-block-section .contact-content b {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .contact-block-section .contact-content b {
+        width: calc(100% - 105px);
+    }
+}
+
+.block-layout .contact-form-section {
+    margin-top: 50px;
+}
+
+.block-layout .contact-form-section h4 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    color: var(--DTSecondaryColor);
+    font-size: 28px;
+    text-align: center;
+}
+
+.layout-type form.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.layout-type form.contact-form>* {
+    width: 32.5%;
+}
+
+@media screen and (max-width: 767px) {
+    .layout-type form.contact-form>* {
+        width: 100%;
+    }
+
+    .layout-type form.contact-form>*+* {
+        margin-top: 30px;
+    }
+}
+
+.layout-type form.contact-form label {
+    display: none;
+}
+
+.layout-type form.contact-form textarea {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.layout-type form.contact-form button {
+    grid-column: 1/3;
+    margin: 0;
+    width: fit-content;
+    margin-top: 30px;
+}

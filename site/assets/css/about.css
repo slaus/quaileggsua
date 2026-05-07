@@ -1,0 +1,332 @@
+@media screen and (max-width: 991px) {
+    .about-section .breadcrumb {
+        margin-bottom: 0;
+    }
+
+    .about-section .section-wrapper {
+        padding-top: 0;
+    }
+}
+
+.grid-page-section {
+    display: grid;
+    width: 100%;
+    grid-gap: var(--DTGutter_Width);
+    grid-gap: 80px;
+    margin-bottom: 30px;
+    margin-left: 0;
+    padding: 0;
+    grid-auto-flow: row dense;
+    margin-bottom: 0;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 991px) {
+    .grid-page-section {
+        grid-gap: var(--DTGutter_Width);
+    }
+}
+
+.grid-page-section .grid-page:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.grid-page {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    background-clip: border-box;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.grid-page .grid-page-image {
+    width: 50%;
+    height: 100%;
+    max-height: 400px;
+    min-height: min-content;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 991px) {
+    .grid-page .grid-page-image {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .grid-page .grid-page-image {
+        max-height: 400px;
+        width: 100%;
+    }
+}
+
+.grid-page-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.grid-page-image.with-overlay {
+    z-index: 1;
+    position: relative;
+}
+
+.grid-page-image.with-overlay:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: var(--DTBaseTransition);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background: var(--DTTertiaryColor);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.grid-page-content {
+    width: 100%;
+    padding: 30px 80px;
+    margin: auto;
+}
+
+@media screen and (max-width: 1199px) {
+    .grid-page-content {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .grid-page-content {
+        padding: 30px 0;
+    }
+}
+
+.grid-page .grid-page-image+.grid-page-content {
+    width: 50%;
+}
+
+@media screen and (max-width: 767px) {
+    .grid-page .grid-page-image+.grid-page-content {
+        width: 100%;
+        padding: 30px 0;
+    }
+}
+
+.grid-page-inner {
+    padding: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .grid-page-inner {
+        padding: 20px 0;
+    }
+}
+
+.grid-page-section .grid-page:nth-child(even) .grid-page-inner {
+    text-align: right;
+}
+
+@media screen and (max-width: 767px) {
+    .grid-page-section .grid-page:nth-child(even) .grid-page-inner {
+        text-align: left;
+    }
+}
+
+.grid-page-content .main-title {
+    font-size: 40px;
+    line-height: 48px;
+    color: var(--DTSecondaryColor);
+    margin-top: 0;
+}
+
+.grid-page-content .description {
+    font-size: 18px;
+}
+
+.grid-page .grid-page-image+.grid-page-content .description {
+    font-size: 16px;
+}
+
+.grid-page-section .grid-page:hover .grid-page-image.with-overlay:after {
+    opacity: .5;
+    transition: var(--DTBaseTransition);
+}
+
+.grid-page-section .grid-page:hover .main-title {
+    color: var(--DTTertiaryColor);
+    transition: var(--DTBaseTransition);
+}
+
+.team-section .section-wrapper {
+    padding-bottom: 0;
+}
+
+.team-container .main-heading {
+    text-align: center;
+}
+
+.team-block {
+    display: grid;
+    width: 100%;
+    grid-gap: var(--DTGutter_Width);
+    margin-bottom: 30px;
+    margin-left: 0;
+    padding: 0;
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 1199px) {
+    .team-block {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 767px) {
+    .team-block {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.team-item {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--DTBaseTransition);
+    position: relative;
+    margin: 0 0 30px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.team-image:before,
+.team-image:after {
+    top: 0;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 0%;
+    transition: var(--DTBaseTransition);
+    opacity: 0.5;
+    z-index: 1;
+    background-color: #4b2c5e;
+}
+
+.team-item:hover .team-image:before,
+.team-item:hover .team-image:after {
+    width: 50%;
+    transition: var(--DTBaseTransition);
+}
+
+.team-image:after {
+    left: 0;
+}
+
+.team-image:before {
+    right: 0;
+}
+
+.team-image img {
+    border-radius: 20px;
+}
+
+.team-block .social-icon {
+    z-index: 2;
+    text-align: center;
+    left: 0;
+    margin: 0 auto;
+    bottom: 0;
+    position: absolute;
+    right: 0px;
+    opacity: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    transition: var(--DTBaseTransition);
+    padding: 0 15px;
+}
+
+.team-item:hover .social-icon {
+    opacity: 1;
+    bottom: 20px;
+}
+
+.team-block .social-icon li {
+    margin: 0 5px;
+}
+
+.team-block .social-icon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    transition: var(--DTBaseTransition);
+    border-radius: 5px;
+    background-color: var(--DTPrimaryColor);
+}
+
+.team-block .social-icon a:hover {
+    background-color: var(--DTSecondaryColor);
+}
+
+.team-block .social-icon a img {
+    width: 16px;
+    height: 16px;
+    filter: invert(17%) sepia(74%) saturate(517%) hue-rotate(234deg) brightness(94%) contrast(92%);
+}
+
+.team-block .social-icon a:hover img {
+    filter: invert(85%) sepia(22%) saturate(2541%) hue-rotate(333deg) brightness(101%) contrast(95%);
+}
+
+.team-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.team-content .main-title {
+    padding: 0;
+    margin: 0 0 10px;
+    font-size: 22px;
+    width: 100%;
+    color: var(--DTTertiaryColor);
+}
+
+.team-content h6 {
+    margin: 0;
+    font-family: var(--DTFontTypo_Body);
+    font-weight: 400;
+    font-size: 14px;
+}

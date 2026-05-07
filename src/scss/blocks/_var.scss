@@ -1,15 +1,34 @@
 :root {
-    --white     : #ffffff;
-    --black     : #0e0e0e;
-    --light-gray: #f8f8f8;
-    --gray      : #ececec;
-    --dark-gray : #878787;
-    --yellow    : #feba22;
-    --blue      : #082D53;
-    --dark-blue : #001f3f;
-    --light-blue: #1D69B7;
+    --font-heading: "Lilita One Ukr", cursive;
+    --font-body   : "Open Sans", sans-serif;
 
-    --radius: 20px;
+    --line-height: 120%;
 
+    --color-card        : #ffffff;
+    --color-text        : #0e0e0e;
+    --color-gray-light  : #efefef;
+    --color-gray        : #dddddd;
+    --color-gray-dark   : #878787;
+    --color-yellow-light: #ffe89d;
+    --color-yellow      : #ecb90e;
+    --color-yellow-dark : #b88d00;
+    --color-blue-light  : #4694bb;
+    --color-blue        : #245a75;
+    --color-blue-dark   : #151744;
+    --color-green-light : #78be32;
+    --color-green       : #5e9923;
+    --color-green-dark  : #4b7e18;
+    --color-violet      : #4b2c5e;
+    --color-red         : #e73747;
+    --color-red-dark    : #c5000a;
+
+    --radius: clamp(15px, 4vw, 30px);
+    --container: 1720px;
     --move: 100px;
+    --padding-x: clamp(20px, 4vw, 35px);
+    --padding-y: clamp(4px, 2vw, 12px);
+    --padding: var(--padding-y) var(--padding-x);
+    --space: clamp(15px, 3vw, 25px);
+    --transition: all .3s ease .3s;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

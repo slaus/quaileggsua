@@ -30,7 +30,7 @@ function initScrollReveal() {
 
     revealElements.forEach(el => observer.observe(el));
     revealVisibleElements();
-    
+
     window.addEventListener('load', revealVisibleElements);
 }
 
@@ -77,65 +77,182 @@ if (document.readyState === "complete") {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    /** Плавная прокрутка до элемента */
+    function smoothScrollTo(targetId, offset = 80) {
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+
+        // После окончания плавной прокрутки (с задержкой) обновляем активный класс
+        setTimeout(() => updateActiveMenuItem(), 600);
+    }
+
+    /** Обновление активного пункта меню на основе видимой секции */
+    function updateActiveMenuItem() {
+        const smoothLinks = document.querySelectorAll('.smooth');
+        if (!smoothLinks.length) return;
+
+        // Собираем все цели и соответствующие им ссылки
+        const targets = [];
+        smoothLinks.forEach(link => {
+            let targetId = null;
+            if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+                targetId = link.getAttribute('href').substring(1);
+            } else if (link.dataset.href) {
+                targetId = link.dataset.href.startsWith('#') ? link.dataset.href.substring(1) : link.dataset.href;
+            }
+            if (targetId && document.getElementById(targetId)) {
+                targets.push({ id: targetId, link });
+            }
+        });
+
+        if (targets.length === 0) return;
+
+        const scrollPos = window.pageYOffset + 120; // 120px – отступ от верха (настройте под ваш хедер)
+        let activeId = null;
+
+        // Ищем последний блок, который поднялся выше порога (чтобы подсвечивать текущий)
+        for (let i = targets.length - 1; i >= 0; i--) {
+            const target = document.getElementById(targets[i].id);
+            if (target && target.offsetTop <= scrollPos) {
+                activeId = targets[i].id;
+                break;
+            }
+        }
+
+        // Если ничего не найдено, возможно, верх страницы – тогда активен первый блок?
+        if (!activeId && targets[0]) {
+            activeId = targets[0].id;
+        }
+
+        // Устанавливаем/убираем класс active
+        targets.forEach(({ link, id }) => {
+            if (id === activeId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
     /** Mobile menu */
     const navbarMenu = document.getElementById('navbar__menu');
     const navbarCollapse = document.getElementById('navbar');
     const body = document.body;
+    const closeBtn = document.querySelector('.close-nav');
 
-    if (navbarMenu && navbarCollapse) {
-        navbarMenu.addEventListener('click', function () {
+    if (navbarCollapse && navbarMenu) {
+        navbarCollapse.addEventListener('click', function (e) {
+            e.stopPropagation();
             this.classList.toggle('open');
-            navbarCollapse.classList.toggle('open');
+            navbarMenu.classList.toggle('open');
 
             if (body.classList.contains('menu-open')) {
-                setTimeout(() => {
-                    body.classList.remove('menu-open');
-                }, 350);
+                setTimeout(() => body.classList.remove('menu-open'), 350);
             } else {
                 body.classList.add('menu-open');
             }
         });
 
-        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                navbarMenu.classList.remove('open');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function () {
                 navbarCollapse.classList.remove('open');
-
-                setTimeout(() => {
-                    body.classList.remove('menu-open');
-                }, 350);
+                navbarMenu.classList.remove('open');
+                setTimeout(() => body.classList.remove('menu-open'), 350);
             });
-        });
+        }
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && navbarCollapse.classList.contains('open')) {
-                navbarMenu.classList.remove('open');
                 navbarCollapse.classList.remove('open');
-
-                setTimeout(() => {
-                    body.classList.remove('menu-open');
-                }, 350);
+                navbarMenu.classList.remove('open');
+                setTimeout(() => body.classList.remove('menu-open'), 350);
             }
         });
 
         document.addEventListener('click', function (e) {
-            if (!navbarMenu.contains(e.target) &&
-                !navbarCollapse.contains(e.target) &&
-                navbarCollapse.classList.contains('open')) {
-                navbarMenu.classList.remove('open');
+            const isSmooth = e.target.closest('.smooth');
+            if (!isSmooth && !navbarCollapse.contains(e.target) && !navbarMenu.contains(e.target) && navbarCollapse.classList.contains('open')) {
                 navbarCollapse.classList.remove('open');
-
-                setTimeout(() => {
-                    body.classList.remove('menu-open');
-                }, 350);
+                navbarMenu.classList.remove('open');
+                setTimeout(() => body.classList.remove('menu-open'), 350);
             }
         });
     }
 
-    /** To top and Call buttons */
+    document.addEventListener('click', function (e) {
+        const smoothElement = e.target.closest('.smooth');
+        if (!smoothElement) return;
+
+        e.preventDefault();
+
+        let targetId = null;
+        if (smoothElement.getAttribute('href') && smoothElement.getAttribute('href').startsWith('#')) {
+            targetId = smoothElement.getAttribute('href').substring(1);
+        } else if (smoothElement.dataset.href) {
+            targetId = smoothElement.dataset.href.startsWith('#') ? smoothElement.dataset.href.substring(1) : smoothElement.dataset.href;
+        }
+
+        if (targetId) {
+            smoothScrollTo(targetId, 80);
+        }
+
+        if (navbarMenu && navbarMenu.contains(smoothElement)) {
+            navbarCollapse.classList.remove('open');
+            navbarMenu.classList.remove('open');
+            setTimeout(() => body.classList.remove('menu-open'), 350);
+        }
+    });
+
+    let throttleTimer;
+    window.addEventListener('scroll', function () {
+        if (throttleTimer) return;
+        throttleTimer = setTimeout(() => {
+            updateActiveMenuItem();
+            throttleTimer = null;
+        }, 100);
+    });
+    window.addEventListener('load', updateActiveMenuItem);
+    window.addEventListener('resize', updateActiveMenuItem);
+
+    /** FAQ */
+    const faq = () => {
+        const items = document.querySelectorAll('.block-btn');
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const question = item;
+                const answer = item.nextElementSibling;
+
+                if (!answer || !answer.classList) return;
+
+                if (question.classList.contains('active')) {
+                    question.classList.remove('active');
+                    answer.classList.remove('open');
+                } else {
+                    items.forEach(btn => {
+                        btn.classList.remove('active');
+                        const sibling = btn.nextElementSibling;
+                        if (sibling && sibling.classList) {
+                            sibling.classList.remove('open');
+                        }
+                    });
+                    question.classList.add('active');
+                    answer.classList.add('open');
+                }
+            });
+        });
+    };
+
+    faq();
+
+    /** To top button */
     const scrollTopButton = document.getElementById('scroll-top');
-    const callButton = document.getElementById('call');
 
     const getViewportHeight = () => window.innerHeight;
 
@@ -145,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
         if (scrollPosition > showThreshold) {
-            button.style.display = 'block';
+            button.style.display = 'flex';
             setTimeout(() => {
                 button.style.opacity = '1';
             }, 10);
@@ -174,21 +291,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // if (callButton) {
-    //     callButton.addEventListener('click', (e) => {
-    //         e.preventDefault();
-    //     });
-    // }
-
     const toggleButtons = () => {
         const viewportHeight = getViewportHeight();
 
         setupButtonVisibility(scrollTopButton, viewportHeight, viewportHeight);
-        // setupButtonVisibility(callButton, viewportHeight * 0.01, viewportHeight);
     };
 
     initButtonStyles(scrollTopButton);
-    // initButtonStyles(callButton);
 
     window.addEventListener('scroll', toggleButtons);
 
@@ -196,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /** Swiper Slider */
     try {
-        const swiper = new Swiper(".swiper-slider", {
+        const swiperTestimonial = new Swiper(".testimonial-block", {
             loop: true,
             centeredSlides: true,
             slidesPerView: "auto",
@@ -233,10 +342,65 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+
+        const swiperPartner = new Swiper(".partner-block", {
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            spaceBetween: 40,
+            speed: 800,
+
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+                pageUpDown: true,
+            },
+
+            navigation: {
+                nextEl: ".swiper-next",
+                prevEl: ".swiper-prev",
+            },
+
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 12,
+                    centeredSlides: false
+                },
+                577: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    centeredSlides: false
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    centeredSlides: false
+                },
+                1400: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                    centeredSlides: false
+                }
+            }
+        });
     } catch (error) {
         console.error(error);
     }
 
+    /** Language switcher */
+    const langSwitcher = document.querySelector('.header-link-lang');
+    if (langSwitcher) {
+        langSwitcher.addEventListener('click', (e) => {
+            e.preventDefault();
+        });
+    }
 
     /** Article sticky menu */
     const stickyMenu = document.querySelector('.article__menu');

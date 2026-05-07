@@ -1,225 +1,141 @@
 .slider {
-  display       : flex;
-  flex-direction: column;
-  flex-grow     : 1;
-  // height    : 100%;
+    width          : 100%;
+    position       : relative;
+    background     : url("../img/blue-marble.jpg") center center no-repeat;
+    background-size: cover;
+    overflow       : hidden;
 
-  @media screen and (max-width: 991px) {
-    min-height: calc(100vh - 74px);
-    // flex-grow : unset;
-  }
-
-  &__wrap {
-    border-radius         : var(--radius);
-    margin                : calc(var(--bs-gutter-x) * 0.5) auto 0;
-    padding               : 0;
-    color                 : var(--white);
-    min-height            : 100%;
-    position              : relative;
-    overflow              : hidden;
-    transition            : all .3s ease-in-out .3s;
-
-    @media screen and (max-width: 991px) {
-      // gap       : calc(var(--bs-gutter-x) * 0.5);
-      margin                : calc(var(--bs-gutter-x) * 0.5) auto;
-      // min-height: unset;
-    }
-  }
-
-  &__container {
-    height   : 100%;
-    display  : flex;
-    flex-grow: 1;
-
-    @media screen and (max-width: 991px) {
-      // height: unset;
-    }
-  }
-
-  &__inner {
-    padding      : clamp(30px, 4vw, 50px) clamp(20px, 4vw, 35px);
-    color        : var(--white);
-    min-height   : 100%;
-    width        : 100%;
-    position     : relative;
-    overflow     : hidden;
-    flex         : 1 1 0;
-    min-width    : 0;
-    transition   : all 0.5s cubic-bezier(0.3, 0, 0.3, 0) .5s;
-    clip-path    : polygon(calc(var(--bs-gutter-x) * 2.8) 0%, 100% 0%, calc(100% - calc(var(--bs-gutter-x) * 2.8)) 100%, 0% 100%);
-    margin       : 0 calc(var(--bs-gutter-x) * -1.2);
-
-    &:first-child {
-      clip-path: polygon(0% 0%, 100% 0%, calc(100% - calc(var(--bs-gutter-x) * 2.8)) 100%, 0% 100%);
+    &-inner {
+        height     : 75vh;
+        width      : 100%;
+        margin     : 0;
+        padding    : 0;
+        display    : flex;
+        align-items: center;
     }
 
-    &:last-child {
-      clip-path: polygon(calc(var(--bs-gutter-x) * 2.8) 0%, 100% 0%, 100% 100%, 0% 100%);
+    &-waves {
+        position     : relative;
+        width        : 100%;
+        height       : 15vh;
+        margin-bottom: -7px;
+        min-height   : 100px;
+        max-height   : 150px;
     }
 
-    @media screen and (max-width: 1199px) {
-      padding: clamp(15px, 4vw, 30px);
+    &-heading {
+        color         : var(--color-yellow);
+        text-transform: uppercase;
+        margin-bottom : 0;
+
+        @media screen and (max-width: 1199px) {
+            font-size: calc(.6 * 70px);
+        }
+
+        @media screen and (max-width: 767px) {
+            font-size: calc(.5 * 70px);
+        }
     }
 
-    @media screen and (max-width: 991px) {
-      margin      : calc(var(--bs-gutter-x) * -0.9) 0;
-      clip-path   : polygon(0% calc(var(--bs-gutter-x) * 2), 100% 0%, 100% calc(100% - calc(var(--bs-gutter-x) * 2)), 0% 100%);
-      // flex     : unset;
-      // min-width   : unset;
-      min-height: unset;
-      height: 100%;
+    &-text {
+        font-size     : 24px;
+        line-height   : 30px;
+        color         : var(--color-card);
+        font-weight   : 200;
+        position      : relative;
+        width         : 100%;
+        padding-right : calc(50% + var(--space));
+        display       : flex;
+        flex-direction: column;
+        gap           : var(--space);
 
-      &:first-child {
-        clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - calc(var(--bs-gutter-x) * 2)), 0% 100%);
-      }
+        @media screen and (max-width: 991px) {
+            padding-right: 0;
+            text-align   : center;
+        }
 
-      &:last-child {
-        clip-path: polygon(0% calc(var(--bs-gutter-x) * 2), 100% 0%, 100% 100%, 0% 100%);
-      }
+        @media screen and (max-width: 767px) {
+            font-size    : 16px;
+            margin-bottom: 0;
+        }
+
+        img {
+            position : absolute;
+            right    : 0;
+            top      : 50%;
+            transform: translateY(-50%);
+
+            @media screen and (max-width: 991px) {
+                // display: none;
+                top      : 100%;
+                transform: translateY(20%);
+                left     : 0;
+                margin   : 0 auto;
+                max-width: 50%;
+            }
+
+            @media screen and (max-width: 767px) {
+                max-width: 60%;
+            }
+        }
     }
 
-    &:hover {
-      flex: 3 1 0;
 
-      @media screen and (max-width: 1199px) {
-        flex: 2 1 0;
-      }
+    &-buttons {
+        display        : flex;
+        flex-wrap      : wrap;
+        justify-content: flex-start;
 
-      @media screen and (max-width: 991px) {
-        flex     : 1 1 0;
-        // flex-grow: 0;
-      }
+        @media screen and (max-width: 991px) {
+            justify-content: center;
+        }
 
-      &:after {
-        opacity   : .25;
-        transition: all .3s ease-in-out .3s;
-      }
+        @media screen and (max-width: 576px) {
+            justify-content: center;
+        }
 
-      .slider__video {
-        opacity: 1;
-      }
+        .btn {
+            background: var(--color-yellow-light);
+            color     : var(--color-text);
 
-      .slider__img {
-        opacity: 1;
-      }
-
-      .slider__btn {
-        opacity  : .75;
-        transform: translate(0, 0);
-      }
+            &:hover {
+                background: var(--color-yellow);
+            }
+        }
     }
 
-    &:after {
-      content      : "";
-      position     : absolute;
-      left         : 0;
-      top          : 0;
-      width        : 100%;
-      height       : 100%;
-      background   : linear-gradient(to bottom, #0000005d 0%, #000000b2 50%, var(--black) 100%);
-      display      : block;
-      opacity      : .75;
-      transition   : all .3s ease-in-out .3s;
-    }
-  }
-
-  &__block {
-    height: 100%;
-    width : 100%;
-  }
-
-  &__video {
-    width     : 100%;
-    height    : 100%;
-    position  : absolute;
-    left      : 0;
-    top       : 0;
-    z-index   : 0;
-    transition: all .3s ease-in-out .3s;
-
-    video {
-      width     : 100%;
-      height    : 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__img {
-    width     : 100%;
-    height    : 100%;
-    position  : absolute;
-    left      : 0;
-    top       : 0;
-    z-index   : 0;
-    opacity   : 1;
-    transition: all .3s ease-in-out .3s;
-
-    img {
-      width     : 100%;
-      height    : 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__title {
-    z-index       : 1;
-    text-shadow   : 1px 1px 1px var(--black);
-    // width      : 20vw;
-    width         : 40ch;
-
-    @media screen and (max-width: 1199px) {
-      // width    : 80%;
-      // min-width: 300px;
-      width: 30ch;
+    &-parallax>use {
+        animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
     }
 
-    @media screen and (max-width: 991px) {
-      width: 100%;
-    }
-  }
-
-  &__text {
-    z-index   : 1;
-    // width  : 20vw;
-    width     : 40ch;
-
-    @media screen and (max-width: 1499px) {
-      width: 30ch;
+    &-parallax>use:nth-child(1) {
+        animation-delay   : -2s;
+        animation-duration: 7s;
     }
 
-    @media screen and (max-width: 1199px) {
-      // width    : 80%;
-      // min-width: 300px;
-      width: 25ch;
+    &-parallax>use:nth-child(2) {
+        animation-delay   : -3s;
+        animation-duration: 10s;
     }
 
-    @media screen and (max-width: 991px) {
-      width: 100%;
+    &-parallax>use:nth-child(3) {
+        animation-delay   : -4s;
+        animation-duration: 13s;
     }
 
-    @media screen and (max-width: 576px) {
-      font-size         : 12px;
-      line-height       : 14px;
-      display           : -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow          : hidden;
-      text-overflow     : ellipsis;
-      max-height        : calc(14px * 3);
+    &-parallax>use:nth-child(4) {
+        animation-delay   : -5s;
+        animation-duration: 20s;
     }
-  }
+}
 
-  &__btn {
-    z-index    : 1;
-    opacity    : 0;
-    background : var(--blue);
-    transform  : translateY(50px);
-    transition : opacity 0.8s ease, transform 0.8s ease;
-    will-change: transform, opacity;
 
-    @media screen and (max-width: 991px) {
-      opacity  : 1;
-      transform: translateY(0px);
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
     }
-  }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
 }

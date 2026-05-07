@@ -1,0 +1,61 @@
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -15px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        background: var(--color-yellow);
+    }
+
+    20% {
+        background: var(--color-gray);
+
+    }
+
+    30% {
+        background: var(--color-yellow);
+
+    }
+
+    40% {
+        background: var(--color-yellow);
+    }
+
+    50% {
+        background: var(--color-gray);
+    }
+
+    60% {
+        background: var(--DTTertiaryColor);
+    }
+
+    70% {
+        background: var(--color-gray);
+    }
+
+    80% {
+        background: var(--color-yellow);
+    }
+
+    100% {
+        background: var(--color-yellow);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}

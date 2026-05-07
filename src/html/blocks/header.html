@@ -1,66 +1,56 @@
-<header class="header">
-  <div class="container-fluid">
-    <nav class="navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-          <img alt="Logo" class="navbar__logo" src="assets/img/logo/logo-b.svg" />
-        </a>
-        
-        <button class="navbar__menu" id="navbar__menu" type="button">
-          <span class="navbar__menu--icon"></span>
-        </button>
-        
-        <div class="d-flex flex-column align-items-start justify-content-start navbar-collapse navbar__wrap" id="navbar">
-          <ul class="navbar-nav me-auto gap-2 gap-sm-3 up">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Electricity</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Gas & Warm Water</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Plumbing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="maintenance.html">Maintenance</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="404.html">404</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contacts.html">Contacts</a>
-            </li>
-          </ul>
+<div class="mobile-menu" id="navbar__menu">
+  @@include('./mobile.html')
+</div>
+<div class="section-header" id="home">
+  <header id="header">
+    <div class="sticky-header">
+      <div class="container">
+        <div class="row">
+          <div class="logo-alignment">
+            <nav id="accessible-nav">
+              <div class="logo">
+                <a href="index.html" title="">
+                  <img src="assets/img/logo/logo.svg" alt="Logo">
+                </a>
+              </div>
 
-          <ul class="navbar-nav me-auto mt-auto gap-2 mb-3 mb-lg-5 contacts-classic up">
-            <li>
-              <div class="navbar__title">Phone:</div>
-              <a href="tel:" class="navbar__contact subtitle">+31 64 124 99 55</a>
-            </li>
-            <li>
-              <div class="navbar__title">E-mail:</div>
-              <a href="mailto:" class="navbar__contact subtitle">info@pergas.nl</a>
-            </li>
-            <li>
-              <div class="navbar__title">Follow Us:</div>
-              <div class="d-flex align-items-center justify-content-start justify-content-md-start gap-3 col-12 col-lg-3 mb-2 mb-lg-0">
-                <a class="navbar__link lang text text-uppercase active" href="">en</a>
-                <a class="navbar__link lang text text-uppercase" href="">nl</a>
-                <a class="navbar__link lang text text-uppercase" href="">ru</a>
-            </div>
-            </li>
-          </ul>
+              @@include('./menu.html')
+
+              <div class="mobile-nav-container header-menu">
+                <div class="menu-trigger" id="navbar">
+                  <i class="menu-trigger-icon"></i>
+                  <span>Меню</span>
+                </div>
+              </div>
+              <div class="header-links">
+                <div class="header-link">
+                  <a href="" class="header-link-lang">
+                    <img src="assets/img/svgicons/globe.svg" alt="">
+                  </a>
+                  <div class="dropdown-menu">
+                    <ul class="toggle-content">
+                      <li class="active"><a class="dropdown-link" href="">
+                        <img class="dropdown-img" src="assets/img/svgicons/ukraine.svg" alt="Українська"> Українська</a></li>
+                      <li><a class="dropdown-link" href="">
+                        <img class="dropdown-img" src="assets/img/svgicons/kingdom.svg" alt="English"> English</a></li>
+                      <li><a class="dropdown-link" href="">
+                        <img class="dropdown-img" src="assets/img/svgicons/germany.svg" alt="Deutsch"> Deutsch</a></li>
+                      <li><a class="dropdown-link" href="">
+                        <img class="dropdown-img" src="assets/img/svgicons/france.svg" alt="Français"> Français</a></li>
+                      <li><a class="dropdown-link" href="">
+                        <img class="dropdown-img" src="assets/img/svgicons/spain.svg" alt="Español"> Español</a></li>
+                      <li><a class="dropdown-link" href="">
+                        <img class="dropdown-img" src="assets/img/svgicons/poland.svg" alt="Polski"> Polski</a></li>
+                      <li><a class="dropdown-link" href="">
+                        <img class="dropdown-img" src="assets/img/svgicons/lithuania.svg" alt="Lietuvių"> Lietuvių</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
-    </nav>
-  </div>
-</header>
+    </div>
+  </header>
+</div>

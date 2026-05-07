@@ -4,28 +4,22 @@
 @use 'sass:color';
 
 // Bootstrap 5
-@use "bootstrap/scss/bootstrap";
+// @use "bootstrap/scss/bootstrap";
 
 // Свои стили
 @use "blocks/var";
+@use "blocks/fonts";
 @use "blocks/default";
-@use "blocks/home";
+@use "blocks/animate";
+@use "blocks/menu";
 @use "blocks/header";
 @use "blocks/slider";
-@use "blocks/breadcrumb";
-@use "blocks/subheader";
-@use "blocks/navbar";
-@use "blocks/main";
-@use "blocks/section";
+@use "blocks/promo";
 @use "blocks/content";
-@use "blocks/blog";
-@use "blocks/teaser";
-@use "blocks/contact";
-@use "blocks/article";
+@use "blocks/partner";
+@use "blocks/catalog";
 @use "blocks/faq";
-@use "blocks/about";
-@use "blocks/partners";
-@use "blocks/pagination";
-@use "blocks/swiper";
-@use "blocks/error";
+@use "blocks/banner";
+@use "blocks/testimonial";
+@use "blocks/contacts";
 @use "blocks/footer";

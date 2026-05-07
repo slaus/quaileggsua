@@ -1,0 +1,127 @@
+.catalog-page {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 50px;
+}
+
+.sidebar {
+    width: 270px;
+    float: left;
+}
+
+.left-sidebar {
+    margin-right: var(--DTGutter_Width);
+}
+
+.right-sidebar {
+    margin-left: var(--DTGutter_Width);
+}
+
+.catalog-page .main-block {
+    width: calc(100% - 270px - var(--DTGutter_Width));
+}
+
+.sidebar .filter-panel-menu {
+    margin-bottom: 30px;
+}
+
+.sidebar .sidebar-title {
+    margin-top: 0;
+    padding: 0 30px 10px 0;
+    color: var(--DTSecondaryColor);
+    border-bottom: 2px solid var(--DTSecondaryColor);
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sidebar .filter-panel ul {
+    width: 100%;
+    padding-left: 0;
+}
+
+.sidebar .filter-panel li {
+    line-height: 38px;
+}
+
+.sidebar .filter-panel ul ul {
+    display: none;
+}
+
+.sidebar .filter-panel-menu ul li a {
+    display: block;
+    /* padding: 5px 0; */
+    position: relative;
+    margin-right: 30px;
+}
+
+.sidebar .filter-panel-menu ul li + li {
+    border-top: 1px solid var(--DTOverlayColor);
+}
+
+.sidebar .filter-panel-menu a:not(:only-child):after {
+    content: "+";
+    position: absolute;
+    left: 100%;
+    width: 30px;
+    text-align: center;
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.sidebar .filter-custom-control input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.sidebar .filter-custom-control label {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+}
+
+.sidebar .filter-custom-control label:before {
+    content: "";
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid var(--DTPrimaryColor);
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: -2px;
+    border-radius: 50%;
+}
+.sidebar .filter-custom-control input:checked+label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 9px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--DTPrimaryColor);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.sidebar .filter-action {
+    display: flex;
+}
+
+.sidebar .btn {
+    padding: 5px 15px;
+    font-size: 14px;
+    width: auto;
+    display: inline-block;
+}
+
+.sidebar .filter-action > div + div {
+    margin-left: 10px;
+}

@@ -1,0 +1,301 @@
+.mobile-nav-container {
+    padding: 2px;
+    margin-left: auto;
+    display: none;
+}
+
+@media screen and (max-width: 1199px) {
+    .mobile-nav-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.mobile-nav-container .menu-trigger {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0 5px 0 10px;
+}
+
+.mobile-nav-container .menu-trigger>.menu-trigger-icon {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: currentColor;
+    height: 1px;
+    margin-top: 0;
+    position: relative;
+    width: 18px;
+    transition: background-color 10ms 300ms ease;
+}
+
+.mobile-nav-container .menu-trigger>span {
+    display: inline-block;
+    font-size: 15px;
+    padding: 0 5px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 576px) {
+    .mobile-nav-container .menu-trigger>span {
+        display: none;
+    }
+}
+
+.mobile-nav-container .menu-trigger>.menu-trigger-icon:before,
+.mobile-nav-container .menu-trigger>.menu-trigger-icon:after {
+    background: currentColor;
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transition: left 300ms 350ms ease, top 300ms 350ms ease, transform 300ms 50ms ease;
+}
+
+.mobile-nav-container .menu-trigger>.menu-trigger-icon:before {
+    top: -5px;
+}
+
+.mobile-nav-container .menu-trigger>.menu-trigger-icon:after {
+    top: 5px;
+}
+
+.mobile-nav-container:hover .menu-trigger>.menu-trigger-icon:before,
+.mobile-nav-container:hover .menu-trigger>.menu-trigger-icon:after {
+    left: -5px;
+    transition: left 300ms 350ms ease, top 300ms 350ms ease, transform 300ms 50ms ease;
+}
+
+.header-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    height: 100%;
+}
+
+@media screen and (max-width: 1199px) {
+    .header-links {
+        margin-left: unset;
+    }
+}
+
+.header-links .header-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 100%;
+    margin-left: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.header-link > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+
+.header-link a img {
+    width: 100%;
+
+}
+
+.header-link:hover a img {
+    transition: all 0.4s ease;
+    filter: invert(52%) sepia(90%) saturate(6197%) hue-rotate(336deg) brightness(94%) contrast(92%);
+}
+
+.header-link #cart-count {
+    position: absolute;
+    right: -6px;
+    top: calc(50% - 15px);
+}
+
+.header-link .count {
+    top: -4px;
+    position: relative;
+    border: 1px solid;
+    border-radius: 50%;
+    font-size: 12px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+    display: block;
+    font-weight: 500;
+    background-color: var(--DTPrimaryColor);
+    background-color: #e73747;
+    color: var(--DTColor_Heading);
+    color: #ffffff;
+    border-color: var(--DTPrimaryColor);
+    border-color: #e73747;
+    right: 0px;
+}
+
+.header-links .dropdown-menu a, .top-level-link .dropdown-menu a {
+    height: 30px;
+    display: block;
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+    -webkit-border-radius: var(--DTRadius);
+    border-radius: var(--DTRadius);
+    width: auto;
+    padding: 5px 15px;
+    height: auto;
+}
+
+.header-link .dropdown-menu,  .top-level-link .dropdown-menu{
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    top: 87px;
+    width: fit-content;
+    height: 0;
+    opacity: 0;
+    white-space: nowrap;
+    background-color: #fff;
+    color: #4b2c5e;
+    border-radius: var(--DTRadius) 0 var(--DTRadius) var(--DTRadius);
+    transition: all 0.4s ease;
+    animation-name: fadeInDown;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    z-index: 2;
+}
+
+.header-link .dropdown-menu {
+    top: 100%;
+}
+
+.top-level-link .go-back,
+.top-level-link .see-all {
+    display: none;
+}
+
+.dropdown-menu .toggle-content {
+    padding: 15px;
+    margin-bottom: 0;
+}
+
+.header-link:hover .dropdown-menu, .top-level-link:hover .dropdown-menu {
+    display: block;
+    height: auto;
+    width: fit-content;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.dropdown-menu {
+    right: 8px;
+}
+
+.dropdown-menu.column {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+.dropdown-menu.four-column .toggle-content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 20px;
+}
+
+#header .desktop-menu {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1199px) {
+    #header .desktop-menu {
+        display: none;
+    }
+}
+
+#header ul.nav > li.top-level-link {
+    padding: 20px 0;
+    display: inline-block;
+}
+
+.top-level-link:not(.has-mega-menu) {
+    position: relative;
+}
+
+ul.nav > li > a {
+    display: block;
+    padding: 10px 30px;
+    text-transform: capitalize;
+    position: relative;
+    font-size: 17px;
+    box-sizing: border-box;
+    border-radius: var(--DT_Button_Border_Radius);
+    margin: 0 2px;
+}
+
+ul.nav > li:hover > a, ul.nav > li.active > a {
+    background-color: var(--DTTertiaryColor);
+    color: var(--DTBodyBGColor)
+}
+
+ul.nav > li > a.dropdown > .caret {
+    margin-left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+
+ul.nav > li > a.dropdown > .caret:after {
+    width: 5px;
+    height: 5px;
+    transform: rotate( 135deg );
+    border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    content: '';
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+ul.nav > li:hover .sub-menu-block {
+    display: block;
+}
+
+.menu-product_item-info {
+    text-align: center;
+    background: var(--DT_Button_BG_Color);
+    color: var(--DT_Button_Text_Color);
+    transition: var(--DTBaseTransition);
+    line-height: normal;
+    margin: 0;
+    padding: 10px;
+    border-radius: var(--DTRadius);
+}
+
+.menu-product_item-info a {
+    color: currentcolor;
+}
+
+.menu-product:hover .menu-product_item-info {
+    background: var(--DT_Button_BG_Hover_Color);
+    color: var(--DT_Button_Text_Hover_Color);
+}

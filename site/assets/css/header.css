@@ -1,0 +1,126 @@
+.section-header {
+    float: left;
+    width: 100%;
+    clear: both;
+    margin-bottom: -2px;
+}
+
+#top-sticky {
+    top: 86px;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 8;
+    position: fixed;
+    background-color: var(--swiper-theme-color);
+    height: 80px;
+}
+
+.site-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.site-search .close {
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+}
+
+.site-search .close img {
+    width: 20px;
+    height: 20px;
+    transition: all 0.4s ease;
+}
+
+.site-search .close:hover img {
+    width: 20px;
+    height: 20px;
+    transition: all 0.4s ease;
+    filter: invert(52%) sepia(90%) saturate(6197%) hue-rotate(336deg) brightness(94%) contrast(92%);
+}
+
+.site-search form {
+    position: relative;
+    display: flex;
+    border-radius: var(--DT_Button_Border_Radius);
+    margin: auto;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    background: transparent;
+}
+
+.site-search .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-box-submit {
+    padding: 0;
+    margin: 0;
+    width: 40px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: calc(100% - 10px);
+    background-color: transparent;
+    color: var(--DTLinkColor);
+    margin: 0 0 0 15px;
+    display: block;
+}
+
+.search-box-submit img {
+    width: 18px;
+    height: 18px;
+    transition: all 0.4s ease;
+}
+
+.search-box-submit:hover {
+    background-color: transparent;
+}
+
+.search-box-submit:hover img {
+    transition: all 0.4s ease;
+    filter: invert(52%) sepia(90%) saturate(6197%) hue-rotate(336deg) brightness(94%) contrast(92%);
+}
+
+.sticky-header {
+    background-color: var(--swiper-theme-color);
+}
+
+#accessible-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 87px;
+}
+
+#header {
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+
+#header .logo {
+    margin-right: auto;
+    padding-right: 5px;
+}
+
+#header .logo img {
+    max-width: 150px;
+}
+
+@media screen and (max-width: 576px) {
+    #header .logo img {
+        max-width: 70px;
+    }
+}
+
