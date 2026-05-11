@@ -1,7 +1,7 @@
 .slider {
     width          : 100%;
     position       : relative;
-    background     : url("../img/blue-marble.jpg") center center no-repeat;
+    background     : url("../img/marble.jpg") center center no-repeat;
     background-size: cover;
     overflow       : hidden;
 
@@ -24,7 +24,7 @@
     }
 
     &-heading {
-        color         : var(--color-yellow);
+        color         : var(--color-green-light);
         text-transform: uppercase;
         margin-bottom : 0;
 
@@ -35,6 +35,11 @@
         @media screen and (max-width: 767px) {
             font-size: calc(.5 * 70px);
         }
+    }
+
+    .title, .text {
+        z-index       : 2;
+        text-shadow    : var(--shadow);
     }
 
     &-text {
@@ -48,15 +53,18 @@
         display       : flex;
         flex-direction: column;
         gap           : var(--space);
+        transform     : translateY(10vh);
 
         @media screen and (max-width: 991px) {
             padding-right: 0;
             text-align   : center;
+            transform     : translateY(5vh);
         }
 
         @media screen and (max-width: 767px) {
             font-size    : 16px;
             margin-bottom: 0;
+            transform     : translateY(0vh);
         }
 
         img {
@@ -64,6 +72,7 @@
             right    : 0;
             top      : 50%;
             transform: translateY(-50%);
+            z-index       : 1;
 
             @media screen and (max-width: 991px) {
                 // display: none;
@@ -85,6 +94,7 @@
         display        : flex;
         flex-wrap      : wrap;
         justify-content: flex-start;
+        z-index       : 2;
 
         @media screen and (max-width: 991px) {
             justify-content: center;
@@ -99,7 +109,8 @@
             color     : var(--color-text);
 
             &:hover {
-                background: var(--color-yellow);
+                background: var(--color-green);
+                color     : var(--color-card);
             }
         }
     }

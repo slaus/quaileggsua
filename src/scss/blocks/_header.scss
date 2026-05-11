@@ -12,7 +12,7 @@
 
     .logo {
         margin-right: auto;
-        padding     : 10px 10px 10px 0;
+        padding     : calc(var(--space) * 0.5) calc(var(--space) * 0.5) calc(var(--space) * 0.5) 0;
         height      : 100%;
 
         a {
@@ -27,13 +27,13 @@
             width    : 100%;
             height   : 100%;
             max-width: 150px;
-            filter   : invert(100%) sepia(100%) saturate(0%) hue-rotate(88deg) brightness(1007%) contrast(102%);
+            // filter   : invert(100%) sepia(100%) saturate(0%) hue-rotate(88deg) brightness(1007%) contrast(102%);
         }
     }
 }
 
 .sticky-header {
-    background-color: var(--color-blue-dark);
+    background-color: var(--color-green-light);
 }
 
 #accessible-nav {
@@ -76,7 +76,7 @@
 
             img:not(.dropdown-img) {
                 width : 100%;
-                filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(88deg) brightness(1007%) contrast(102%);
+                // filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(88deg) brightness(1007%) contrast(102%);
             }
         }
 

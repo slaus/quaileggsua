@@ -36,7 +36,7 @@
 
             &.active {
                 border-radius: var(--radius) var(--radius) 0 0;
-                background   : var(--color-yellow);
+                background   : var(--color-green-light);
 
                 .block-title:before {
                     transform: rotate(270deg);
@@ -47,7 +47,7 @@
             }
 
             &:hover {
-                background: var(--color-yellow);
+                background: var(--color-green-light);
             }
 
             .block-title {
@@ -89,7 +89,7 @@
 
         &-content {
             color           : var(--color-card);
-            background-color: var(--color-card);
+            background-color: var(--color-green-light);
             border-radius   : 0 0 var(--radius) var(--radius);
             opacity         : 0;
             height          : 0;
@@ -97,7 +97,7 @@
             margin-top      : calc(-0.5 * var(--space));
             display         : block;
             transition      : var(--transition);
-            transform       : translateY(20px);
+            transform       : translateY(120px);
 
             &.open {
                 opacity  : 1;

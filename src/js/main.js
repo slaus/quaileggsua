@@ -390,6 +390,44 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+
+        const swiperDoc = new Swiper(".doc-block", {
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            spaceBetween: 40,
+            speed: 800,
+
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+                pageUpDown: true,
+            },
+
+            navigation: {
+                nextEl: ".swiper-next",
+                prevEl: ".swiper-prev",
+            },
+
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 12,
+                    centeredSlides: false
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    centeredSlides: true
+                }
+            }
+        });
     } catch (error) {
         console.error(error);
     }

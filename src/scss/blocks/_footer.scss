@@ -1,7 +1,7 @@
 .footer {
     width          : 100%;
     position       : relative;
-    background     : url("../img/blue-marble.jpg") center center no-repeat;
+    background     : url("../img/marble.jpg") center center no-repeat;
     background-size: cover;
     overflow       : hidden;
 
@@ -100,7 +100,7 @@
 
         p {
             font-size  : 26px;
-            color      : var(--color-yellow);
+            color      : var(--color-green-light);
             font-family: var(--font-heading);
             display    : block;
         }
@@ -126,10 +126,10 @@
             overflow       : hidden;
 
             &:hover {
-                background: var(--color-blue);
+                background: var(--color-green-light);
 
                 img {
-                    filter: invert(98%) sepia(2%) saturate(11%) hue-rotate(283deg) brightness(121%) contrast(100%);
+                    // filter: invert(98%) sepia(2%) saturate(11%) hue-rotate(283deg) brightness(121%) contrast(100%);
                 }
             }
 
@@ -158,10 +158,10 @@
         .tel a {
             font-size  : 24px;
             font-weight: bold;
-            color      : var(--color-yellow-light);
+            color      : var(--color-green-light);
 
             &:hover {
-                color: var(--color-yellow);
+                color: var(--color-yellow-light);
             }
         }
 
@@ -174,7 +174,7 @@
                 color: var(--color-card);
 
                 &:hover {
-                    color: var(--color-yellow);
+                    color: var(--color-yellow-light);
                 }
             }
         }
@@ -205,7 +205,7 @@
                 color: var(--color-card);
 
                 &:hover {
-                    color: var(--color-yellow);
+                    color: var(--color-yellow-light);
                 }
             }
         }

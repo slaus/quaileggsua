@@ -11,11 +11,5 @@ npm install
 ## Запуск
 
 ```bash
-npm run dev
-```
-
-## Деплой
-
-```bash
-npm run build
+npm gulp
 ```
