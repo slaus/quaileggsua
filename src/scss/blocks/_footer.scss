@@ -5,10 +5,10 @@
     background-size: cover;
     overflow       : hidden;
 
-    @media screen and (max-width: 767px) {
-        background-image: none;
-        background-color: var(--color-blue-dark);
-    }
+    // @media screen and (max-width: 767px) {
+    //     background-image: none;
+    //     background-color: var(--color-blue-dark);
+    // }
 
     &-inner {
         height         : auto;
