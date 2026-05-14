@@ -1,8 +1,11 @@
 .subheader {
     width          : 100%;
     position       : relative;
-    background     : url("../img/marble.jpg") center center no-repeat;
-    background-size: cover;
+    background-color   : var(--color-green-dark);
+    // background-image   : url("../img/marble.jpg");
+    background-position: center center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
     overflow       : hidden;
 
     &-inner {

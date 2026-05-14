@@ -1,9 +1,12 @@
 .slider {
-    width          : 100%;
-    position       : relative;
-    background     : url("../img/marble.jpg") center center no-repeat;
-    background-size: cover;
-    overflow       : hidden;
+    width              : 100%;
+    position           : relative;
+    background-color   : var(--color-green-dark);
+    // background-image   : url("../img/marble.jpg");
+    background-position: center center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    overflow           : hidden;
 
     &-inner {
         height     : 75vh;
@@ -37,9 +40,10 @@
         }
     }
 
-    .title, .text {
-        z-index       : 2;
-        text-shadow    : var(--shadow);
+    .title,
+    .text {
+        z-index    : 2;
+        text-shadow: var(--shadow);
     }
 
     &-text {
@@ -58,13 +62,13 @@
         @media screen and (max-width: 991px) {
             padding-right: 0;
             text-align   : center;
-            transform     : translateY(5vh);
+            transform    : translateY(5vh);
         }
 
         @media screen and (max-width: 767px) {
             font-size    : 16px;
             margin-bottom: 0;
-            transform     : translateY(0vh);
+            transform    : translateY(0vh);
         }
 
         img {
@@ -72,7 +76,7 @@
             right    : 0;
             top      : 50%;
             transform: translateY(-50%);
-            z-index       : 1;
+            z-index  : 1;
 
             @media screen and (max-width: 991px) {
                 // display: none;
@@ -94,7 +98,7 @@
         display        : flex;
         flex-wrap      : wrap;
         justify-content: flex-start;
-        z-index       : 2;
+        z-index        : 2;
 
         @media screen and (max-width: 991px) {
             justify-content: center;

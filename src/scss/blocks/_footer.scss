@@ -1,8 +1,11 @@
 .footer {
     width          : 100%;
     position       : relative;
-    background     : url("../img/marble.jpg") center center no-repeat;
-    background-size: cover;
+    background-color   : var(--color-green-dark);
+    // background-image   : url("../img/marble.jpg");
+    background-position: center center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
     overflow       : hidden;
 
     // @media screen and (max-width: 767px) {
@@ -157,7 +160,7 @@
 
         .tel a {
             font-size  : 24px;
-            font-weight: bold;
+            font-family: var(--font-heading);
             color      : var(--color-green-light);
 
             &:hover {
@@ -166,9 +169,10 @@
         }
 
         li {
-            font-size    : 18px;
+            font-size    : 17px;
             margin-bottom: 10px;
             color        : var(--color-card);
+            max-width: 38ch;
 
             a {
                 color: var(--color-card);

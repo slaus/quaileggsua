@@ -123,7 +123,7 @@
 
             &.tel {
                 font-size  : 24px;
-                font-weight: 700;
+                font-family: var(--font-heading);
             }
 
             a {
@@ -145,19 +145,10 @@
         gap          : 10px;
         padding      : 0 calc(var(--padding-x) * 1.3);
         margin-bottom: var(--space);
-
-        li {
+        
+        a {
             background   : var(--color-green-dark);
             border-radius: 50%;
-            transition   : var(--transition);
-
-            &:hover {
-                background-color: var(--color-green);
-            }
-        }
-
-
-        a {
             display        : flex;
             justify-content: center;
             align-items    : center;
@@ -166,6 +157,10 @@
             color          : var(--color-text);
             border-radius  : 50%;
             overflow       : hidden;
+
+            &:hover {
+                background-color: var(--color-green);
+            }
 
             img {
                 display        : flex;
