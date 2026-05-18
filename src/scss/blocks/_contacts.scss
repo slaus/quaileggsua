@@ -13,6 +13,10 @@
         text-align   : center;
         width        : 100%;
         margin-bottom: 0;
+
+        @media screen and (max-width: 991px) {
+            order: 0;
+        }
     }
 
     .map {
@@ -24,6 +28,7 @@
         @media screen and (max-width: 991px) {
             width: 100%;
             flex : 0 0 100%;
+            order: 2;
         }
     }
 
@@ -40,11 +45,12 @@
         @media screen and (max-width: 991px) {
             width: 100%;
             flex : 0 0 100%;
+            order: 1;
         }
 
         &-item {
             // padding      : var(--padding);
-            // border       : 1px solid var(--color-blue);
+            // border       : 1px solid var(--color-green);
             // background   : var(--color-card);
             // border-radius: var(--radius);
             width: 100%;
@@ -57,35 +63,44 @@
 
         &-content {
             color: var(--color-text);
+            max-width: 40ch;
+
+            @media screen and (max-width: 991px) {
+                max-width: 100%;
+            }
 
             a {
                 color: var(--color-text);
 
                 &:hover {
-                    color: var(--color-blue);
+                    color: var(--color-green);
                 }
             }
 
             h5 {
                 text-transform: uppercase;
-                margin-bottom : 0;
+                margin-bottom : 5px;
             }
 
-            span {
+            a {
                 display: block;
             }
         }
     }
 
     .form {
-        margin-bottom: var(--space);
+        margin: calc(var(--space) * 1.5)  0 var(--space);
         width        : 100%;
+        @media screen and (max-width: 991px) {
+            order: 3;
+        }
 
-        .title {
+        .subtitle {
             color        : var(--color-gray-dark);
             margin-top   : 0;
-            font-size    : xx-large;
-            margin-bottom: calc(var(--space) * 0.5);
+            margin-bottom: var(--space);
+            text-align   : center;
+            text-transform: unset;
         }
 
         form {
@@ -111,13 +126,13 @@
                 text-align: center;
 
                 .btn {
-                    background: var(--color-green);
-                    color     : var(--color-card);
+                    border         : 3px solid var(--color-green-light);
+                    background: var(--color-card);
+                    color     : var(--color-text);
                     cursor    : pointer;
 
                     &:hover {
-                        background: var(--color-yellow-light);
-                        color     : var(--color-text);
+                        background: var(--color-green-light);
                     }
                 }
             }
@@ -134,7 +149,7 @@
                 appearance   : none;
                 outline      : none;
                 padding      : var(--padding);
-                border       : 1px solid var(--color-green);
+                border       : 3px solid var(--color-green-light);
                 border-radius: var(--radius);
                 background   : var(--color-card);
                 word-break   : break-all;
@@ -145,7 +160,8 @@
                 }
 
                 &:focus {
-                    border: 1px solid var(--color-green-light);
+                    // border: 3px solid var(--color-green);
+                    background   : var(--color-green-light);
                 }
             }
         }

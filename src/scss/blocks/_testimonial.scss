@@ -25,17 +25,12 @@
 
     &-block {
         width         : 100%;
-        max-width     : 770px;
         padding-bottom: calc(var(--space) * 2);
         margin-left   : auto;
         margin-right  : auto;
         position      : relative;
         overflow      : hidden;
         cursor        : move;
-
-        @media screen and (max-width: 991px) {
-            max-width: 100%;
-        }
     }
 
     &-wrapper {
@@ -60,6 +55,12 @@
 
     &-content {
         text-align: center;
+        max-width : 770px;
+        margin    : auto;
+
+        @media screen and (max-width: 991px) {
+            max-width: 100%;
+        }
     }
 
     &-inner {
@@ -73,8 +74,9 @@
             text-align: center;
             padding   : 80px 50px 50px;
         }
+
         @media screen and (max-width: 767px) {
-            padding   : 80px 30px 30px;
+            padding: 80px 30px 30px;
         }
     }
 

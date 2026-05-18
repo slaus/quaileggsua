@@ -11,48 +11,44 @@
     }
 
     .block {
-        padding-top: var(--space);
+        width   : 100%;
+        padding : var(--space) 0;
+        overflow: hidden;
+        position: relative;
 
-        &-grid {
-            display              : grid;
-            width                : 100%;
-            grid-gap             : var(--space);
-            gap                  : var(--space);
-            margin               : 0;
-            padding              : 0;
-            grid-auto-flow       : row dense;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            list-style           : none;
-
-            @media screen and (max-width: 1199px) {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            @media screen and (max-width: 576px) {
-                grid-template-columns: 1fr;
-            }
+        &-wrapper {
+            width : 100%;
+            height: 100%;
         }
 
         &-item {
             transition: var(--transition);
             padding   : 0 calc(var(--space) / 2);
+            cursor: move;
 
             &:hover {
                 .block-image {
-                    border: 5px solid var(--color-yellow);
+                    border: 3px solid var(--color-green);
+
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+
+                .block-text {
+                    transform: translateY(0);
+                    opacity  : 1;
                 }
 
                 .block-title {
-                    color: var(--color-yellow);
+                    color: var(--color-green);
                 }
             }
         }
 
         &-title {
-            font-size     : 200%;
-            line-height   : 100%;
-            padding-left  : 15px;
-            padding-right : 15px;
+            font-size     : 165%;
+            line-height   : var(--line-height);
             margin-left   : auto;
             margin-right  : auto;
             text-transform: uppercase;
@@ -65,22 +61,67 @@
             }
         }
 
+        &-container {
+            position: relative;
+            overflow: hidden;
+        }
+
         &-image {
-            border-radius: 50%;
-            overflow     : hidden;
-            border       : 5px solid var(--color-card);
-            transition   : var(--transition);
-            position     : relative;
-            width        : 100%;
-            max-width    : 400px;
-            margin-left  : auto;
-            margin-right : auto;
+            border-radius  : var(--radius);
+            overflow       : hidden;
+            border         : 3px solid var(--color-card);
+            transition     : var(--transition);
+            position       : relative;
+            width          : 100%;
+            max-width      : 400px;
+            margin-left    : auto;
+            margin-right   : auto;
+            aspect-ratio   : 1;
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+
+            &:after {
+                content   : '';
+                position  : absolute;
+                top       : 0;
+                left      : 0;
+                width     : 100%;
+                height    : 100%;
+                background: rgba(0, 0, 0, 0.6);
+                opacity   : 0;
+                transition: var(--transition);
+            }
 
             img {
                 width     : 100%;
                 height    : 100%;
                 object-fit: contain;
             }
+        }
+
+        &-text {
+            width          : 100%;
+            padding        : var(--space);
+            border-radius  : var(--radius);
+            overflow       : hidden;
+            transition     : var(--transition);
+            position       : absolute;
+            left           : 0;
+            right          : 0;
+            top            : 0;
+            width          : 100%;
+            max-width      : 400px;
+            margin-left    : auto;
+            margin-right   : auto;
+            aspect-ratio   : 1;
+            text-align     : center;
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+            color          : var(--color-card);
+            transform      : translateY(100%);
+            opacity        : 0;
         }
     }
 

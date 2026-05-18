@@ -325,8 +325,8 @@ document.addEventListener('DOMContentLoaded', function () {
             },
 
             navigation: {
-                nextEl: ".swiper-next",
-                prevEl: ".swiper-prev",
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
 
             breakpoints: {
@@ -339,6 +339,54 @@ document.addEventListener('DOMContentLoaded', function () {
                     slidesPerView: "auto",
                     spaceBetween: 20,
                     centeredSlides: true
+                }
+            }
+        });
+
+        const swiperCatalog = new Swiper(".catalog-block", {
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            spaceBetween: 40,
+            speed: 800,
+
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+                pageUpDown: true,
+            },
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 12,
+                    centeredSlides: false
+                },
+                577: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    centeredSlides: false
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    centeredSlides: false
+                },
+                1400: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                    centeredSlides: false
                 }
             }
         });
@@ -363,8 +411,8 @@ document.addEventListener('DOMContentLoaded', function () {
             },
 
             navigation: {
-                nextEl: ".swiper-next",
-                prevEl: ".swiper-prev",
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
 
             breakpoints: {
@@ -411,8 +459,8 @@ document.addEventListener('DOMContentLoaded', function () {
             },
 
             navigation: {
-                nextEl: ".swiper-next",
-                prevEl: ".swiper-prev",
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
 
             breakpoints: {
