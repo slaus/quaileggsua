@@ -1,0 +1,34 @@
+.awards {
+
+    &-wrapper {
+        width : 100%;
+        height: 100%;
+    }
+
+    &-block {
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+        padding: var(--space) 0;
+        overflow: hidden;
+        position: relative;
+    }
+    &-swiper {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: move;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-height: 150px;
+            max-width : 250px;
+            margin: auto;
+        }
+    }
+}

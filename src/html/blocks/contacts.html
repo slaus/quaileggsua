@@ -65,7 +65,53 @@
                         <button type="submit" class="btn">Відправити зараз</button>
                     </div>
                 </form>
-               
+                <script>
+                    (function () {
+                        var cultureKey = '[[++cultureKey]]';
+                        var messages = {
+                            uk: { success: 'Дякуємо! Ваше повідомлення відправлено.', validation: 'Заповніть всі поля коректно.', captcha: 'Не вдалося підтвердити, що ви не робот.', serverError: 'Помилка сервера. Спробуйте пізніше.', connectionError: 'Помилка з\'єднання.' },
+                            en: { success: 'Thank you! Your message has been sent.', validation: 'Please fill in all fields correctly.', captcha: 'Failed to verify you are not a robot.', serverError: 'Server error. Please try again later.', connectionError: 'Connection error.' },
+                            de: { success: 'Vielen Dank! Ihre Nachricht wurde gesendet.', validation: 'Bitte füllen Sie alle Felder korrekt aus.', captcha: 'Bestätigung fehlgeschlagen.', serverError: 'Serverfehler. Bitte versuchen Sie es später erneut.', connectionError: 'Verbindungsfehler.' },
+                            fr: { success: 'Merci ! Votre message a été envoyé.', validation: 'Veuillez remplir tous les champs correctement.', captcha: 'Échec de la vérification.', serverError: 'Erreur serveur. Veuillez réessayer plus tard.', connectionError: 'Erreur de connexion.' },
+                            es: { success: '¡Gracias! Su mensaje ha sido enviado.', validation: 'Complete todos los campos correctamente.', captcha: 'No se pudo verificar.', serverError: 'Error del servidor. Inténtelo de nuevo más tarde.', connectionError: 'Error de conexión.' },
+                            pl: { success: 'Dziękujemy! Twoja wiadomość została wysłana.', validation: 'Wypełnij poprawnie wszystkie pola.', captcha: 'Nie udało się zweryfikować.', serverError: 'Błąd serwera. Spróbuj ponownie później.', connectionError: 'Błąd połączenia.' },
+                            lt: { success: 'Ačiū! Jūsų žinutė išsiųsta.', validation: 'Teisingai užpildykite visus laukus.', captcha: 'Nepavyko patvirtinti.', serverError: 'Serverio klaida. Bandykite vėliau.', connectionError: 'Ryšio klaida.' }
+                        };
+                        function showMessage(type) {
+                            var text = (messages[cultureKey] && messages[cultureKey][type]) ? messages[cultureKey][type] : messages.uk[type];
+                            alert(text);
+                        }
+
+                        var form = document.getElementById('contactForm');
+                        if (form) {
+                            form.addEventListener('submit', function (e) {
+                                e.preventDefault();
+                                grecaptcha.ready(function () {
+                                    grecaptcha.execute('6Lc-Sf0sAAAAAEi3igFAS2t1QMAnqyOoJjeQ_PZU', { action: 'submit' }).then(function (token) {
+                                        document.getElementById('recaptcha_token').value = token;
+                                        var formData = new FormData(form);
+                                        fetch('/telegram-bot.php', {
+                                            method: 'POST',
+                                            body: formData
+                                        })
+                                            .then(function (response) { return response.json(); })
+                                            .then(function (data) {
+                                                if (data.status === 'success') {
+                                                    showMessage('success');
+                                                    form.reset();
+                                                } else {
+                                                    if (data.code === 'captcha_low_score') showMessage('captcha');
+                                                    else if (data.code === 'validation_error') showMessage('validation');
+                                                    else showMessage('serverError');
+                                                }
+                                            })
+                                            .catch(function () { showMessage('connectionError'); });
+                                    });
+                                });
+                            });
+                        }
+                    })();
+                </script>
             </div>
 
         </div>
