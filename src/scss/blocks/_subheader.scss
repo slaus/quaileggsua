@@ -1,20 +1,20 @@
 .subheader {
-    width          : 100%;
-    position       : relative;
-    background-color   : var(--color-green-dark);
+    width                 : 100%;
+    position              : relative;
+    background-color      : var(--color-green-dark);
     // background-image   : url("../img/marble.jpg");
-    background-position: center center;
-    background-repeat  : no-repeat;
-    background-size    : cover;
-    overflow       : hidden;
+    background-position   : center center;
+    background-repeat     : no-repeat;
+    background-size       : cover;
+    overflow              : hidden;
 
     &-inner {
-        height     : 200px;
-        width      : 100%;
-        margin     : 0;
-        padding    : 0;
-        display    : flex;
-        align-items: center;
+        height         : 200px;
+        width          : 100%;
+        margin         : 0;
+        padding        : 0;
+        display        : flex;
+        align-items    : center;
         justify-content: center;
     }
 
@@ -48,28 +48,29 @@
     }
 
     .breadcrumbs {
-        font-size  : 17px;
-        line-height: 20px;
-        color      : var(--color-card);
-        font-weight: 200;
-        position   : relative;
-        width      : 100%;
-        display    : flex;
+        font-size      : 17px;
+        line-height    : 20px;
+        color          : var(--color-card);
+        font-weight    : 200;
+        position       : relative;
+        width          : 100%;
+        display        : flex;
         justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex-wrap  : wrap;
-        gap        : 15px;
-        transform  : translateY(60px);
+        align-items    : center;
+        text-align     : center;
+        flex-wrap      : wrap;
+        gap            : calc(var(--space) * .1) calc(var(--space) * .9);
+        transform      : translateY(60px);
 
         &-item {
             position: relative;
 
             &+.breadcrumbs-item {
                 padding-left: 20px;
+
                 &::before {
-                    content: "/";
-                    color  : var(--color-card);
+                    content : "/";
+                    color   : var(--color-card);
                     position: absolute;
                     left    : 0;
                 }
@@ -77,6 +78,7 @@
 
             a {
                 color: var(--color-card);
+
                 &:hover {
                     color: var(--color-green-light);
                 }

@@ -343,54 +343,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        const swiperCatalog = new Swiper(".catalog-block", {
-            loop: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            spaceBetween: 40,
-            speed: 800,
-
-            autoplay: {
-                delay: 10000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-
-            keyboard: {
-                enabled: true,
-                onlyInViewport: true,
-                pageUpDown: true,
-            },
-
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 12,
-                    centeredSlides: false
-                },
-                577: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                    centeredSlides: false
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                    centeredSlides: false
-                },
-                1400: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                    centeredSlides: false
-                }
-            }
-        });
-
         const swiperPartner = new Swiper(".partner-block", {
             loop: true,
             centeredSlides: true,
@@ -465,22 +417,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
             breakpoints: {
                 0: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 12,
                     centeredSlides: false
                 },
                 577: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                     spaceBetween: 20,
                     centeredSlides: false
                 },
                 1024: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                     spaceBetween: 30,
                     centeredSlides: false
                 },
                 1400: {
-                    slidesPerView: 5,
+                    slidesPerView: 4,
                     spaceBetween: 40,
                     centeredSlides: false
                 }

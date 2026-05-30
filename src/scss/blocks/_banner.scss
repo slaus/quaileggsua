@@ -1,5 +1,5 @@
 .banner {
-    width     : 100%;
+    width : 100%;
     margin: 0;
 
     .wrapper {
@@ -31,13 +31,13 @@
             height  : 100%;
 
             &:after {
-                content: "";
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
+                content   : "";
+                display   : block;
+                position  : absolute;
+                width     : 100%;
+                height    : 100%;
+                top       : 0;
+                left      : 0;
                 background: rgba(35, 35, 35, 0.5);
             }
 
@@ -64,31 +64,32 @@
 
         &-title {
             text-shadow: var(--shadow);
+
             a {
                 color: var(--color-green-light);
             }
         }
 
         &-subtitle {
-            color: var(--color-yellow-light);
-            font-size: 200%;
-            line-height: 100%;
+            color      : var(--color-yellow-light);
+            font-size  : clamp(26px, 2vw, 52px);
+            line-height: calc(clamp(26px, 2vw, 52px) * 1.2);
         }
 
         &-description {
-            color: var(--color-card);
-            margin-left: auto;
+            color       : var(--color-card);
+            margin-left : auto;
             margin-right: auto;
-            max-width: 70ch;
+            max-width   : 70ch;
         }
 
         &-btn {
             background: var(--color-yellow-light);
-            color: var(--color-text);
+            color     : var(--color-text);
 
             &:hover {
                 background: var(--color-green);
-                color: var(--color-card);
+                color     : var(--color-card);
             }
         }
     }
